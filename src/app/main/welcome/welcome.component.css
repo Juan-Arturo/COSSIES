@@ -1,0 +1,83 @@
+.header {
+    position: relative;
+    width: 100%;
+    height: 600px;
+    display: flex;
+    align-items: center;
+    padding-left: 70px;
+    box-sizing: border-box;
+  }
+  
+  .header__background {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: linear-gradient(60deg, #582574, #A21a5c);
+    overflow: hidden;
+    transform: skewY(3deg) translateY(-80px);
+    z-index: -1;
+  }
+  
+  .header__background:after {
+    content: '';
+    background: url('/assets/img/pattern_sm-1.png');
+    width: 900%;
+    position: absolute;
+    top: -400%;
+    right: -400%;
+    height: 900%;
+    opacity: .3;
+    animation-name: rotate;
+    animation-duration: 60s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+  }
+  
+  .header__title {
+    color: white;
+    z-index: 2;
+    display: inline-block;
+  }
+  
+  .header__title h1 {
+    font-size: 90px;
+    font-weight: 900;
+    margin: 0;
+  }
+  
+  .header__title p {
+    font-size: 20px;
+    font-weight: 400;
+  }
+  
+  @keyframes rotate {
+    0% {
+      transform: rotateZ(0deg);
+    }
+    100% {
+      transform: rotateZ(360deg);
+    }
+  }
+  
+  .responsive-img {
+    max-width: 20%;
+    height: auto;
+    display: block;
+  }
+  
+  .content{
+      background: url('/asets/img/flor.png');
+      background-color: #ffffff;
+      overflow-x: hidden;
+      color: #ffffff;
+      font-family: "Roboto", sans-serif;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+      background-size: cover;
+      background-color: transparent;
+      font-size: 0.9rem;
+  }
+  
