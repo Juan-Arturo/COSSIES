@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ContactComponent } from './contact.component';
+import { PanelHeaderComponent } from './panel-header.component';
 
-describe('ContactComponent', () => {
-  let component: ContactComponent;
-  let fixture: ComponentFixture<ContactComponent>;
+describe('PanelHeaderComponent', () => {
+  let component: PanelHeaderComponent;
+  let fixture: ComponentFixture<PanelHeaderComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ContactComponent]
+      imports: [PanelHeaderComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(ContactComponent);
+    fixture = TestBed.createComponent(PanelHeaderComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
