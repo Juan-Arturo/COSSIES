@@ -116,3 +116,15 @@
   .sidebar-nav .nav-content a.active i {
     background-color: #572772;
   }
+
+
+    
+  a {
+  color: #572772;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #001aff;
+  text-decoration: none;
+}
