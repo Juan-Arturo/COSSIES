@@ -1,0 +1,438 @@
+.btn-continue {
+    background-color: var(--color-primary);
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    height: 3rem;
+    min-height: 3rem;
+    flex-shrink: 0;
+    user-select: none;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--rounded-btn, .5rem);
+    border: var(--border-btn, 1px) solid transparent;
+    padding: 0 1rem;
+    font-size: .875rem;
+    line-height: 1em;
+    text-decoration: none;
+    transition: all .3s ease;
+    box-shadow: var(--tw-shadow, 0 1px 2px 0 rgb(0 0 0 / .05));
+    animation: button-pop var(--animation-btn, .25s) ease-out;
+}
+
+.menu {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  padding: 18px 23px;
+  z-index: 4;
+}
+
+.menu__logo {
+  display: flex;
+}
+
+.menu__logo p {
+  color: white;
+  font-weight: 700;
+  text-transform: capitalize;
+  cursor: pointer;
+  transition-duration: .2s;
+}
+
+.menu__logo p:hover {
+  opacity: 0.8;
+}
+
+.menu__buttons {
+  display: flex;
+  box-sizing: border-box;
+}
+
+.menu__button {
+  margin: 0 10px;
+  border: 3px solid white;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 6px 32px;
+  font-weight: 400;
+  color: white;
+  transition-duration: .2s;
+}
+
+.menu__button:hover {
+  background: white;
+  color: #333;
+}
+
+.header {
+  position: relative;
+  width: 100%;
+  height: 600px;
+  display: flex;
+  align-items: center;
+  padding-left: 70px;
+  box-sizing: border-box;
+}
+
+.header__background {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: linear-gradient(60deg, #582574, #A21a5c);
+  overflow: hidden;
+  transform: skewY(3deg) translateY(-80px);
+  z-index: -1;
+}
+
+.header__background:after {
+  content: '';
+  background: url('/assets/images/pattern_sm-1.png');
+  width: 900%;
+  position: absolute;
+  top: -400%;
+  right: -400%;
+  height: 900%;
+  opacity: .3;
+  animation-name: rotate;
+  animation-duration: 60s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+.header__title {
+  color: white;
+  z-index: 2;
+  display: inline-block;
+}
+
+.header__title h1 {
+  font-size: 90px;
+  font-weight: 900;
+  margin: 0;
+}
+
+.header__title p {
+  font-size: 20px;
+  font-weight: 400;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
+
+.responsive-img {
+  max-width: 20%;
+  height: auto;
+  display: block;
+}
+
+body{
+    background: url('/asets/images/flor.png');
+    background-color: #ffffff;
+    overflow-x: hidden;
+    color: #ffffff;
+    font-family: "Roboto", sans-serif;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-size: cover;
+    background-color: transparent;
+    font-size: 0.9rem;
+}
+
+.central-button-container {
+  text-align: center; /* Centra el botón horizontalmente */
+  margin-top: 20px; /* Ajusta el margen superior según tu diseño */
+}
+
+.table{
+  color: #000000;
+  border-radius: 5%;
+  border-color:#FA0A0A ;
+  
+}
+
+/* nav{
+    background: url('/images/patternColor.jpg');
+} */
+
+input[type="checkbox"] {
+	display: none;
+}
+
+input[type="checkbox"] + label {
+	line-height: 3em;
+}
+
+input[type="checkbox"] + label {
+	border-radius: 50px;
+}
+
+input[type="checkbox"]:disabled + label {
+	color: #B1ABAB  !important;
+	cursor: not-allowed;
+}
+
+input[type="checkbox"]:checked:disabled + label:after {
+	border-color: #ccc;
+}
+
+input[type="checkbox"] + label:before {
+	content: "";
+	width: 26px;
+	height: 26px;
+	float: left;
+	margin-right: 0.5em;
+	border: 2px solid #FA0A0A;
+	background: #fff;
+	margin-top: 0.5em;
+}
+
+input[type="checkbox"] + label:before {
+	border-radius: 100%;
+}
+
+input[type="checkbox"]:checked + label {
+	background: #c1eec2;
+}
+
+input[type="checkbox"]:checked + label:after {
+	content: "";
+	width: 12px;
+	height: 6px;
+	border: 4px solid #0fbf12;
+	float: left;
+	margin-left: -1.95em;
+	border-right: 0;
+	border-top: 0;
+	margin-top: 1em;
+	transform: rotate(-55deg);
+}
+
+input[type="checkbox"]:checked + label:before {
+	border-color: #0fbf12;
+}
+
+input[type="checkbox"]:checked:disabled + label {
+	background: #ccc;
+	color: #fff !important;
+}
+
+input[type="checkbox"]:checked:disabled + label:before {
+	border-color: #bdbdbd;
+}
+
+
+/*aqui empieza el radio*/
+
+   /* Estilo para el contenedor principal */
+   .tunning .body {
+    font-size: 16px;
+    background: #5c5757; /* Reemplaza $white con su valor hexadecimal */
+    font-family: "Roboto";
+    color: #000000;
+    margin: 0 15px;
+    padding: 10px;
+    border: 1px solid #000000;
+    border-radius: 5px;
+}
+
+    .tunning .a{
+      color: #ee0303; /* Reemplaza $primario con su valor hexadecimal */
+    }
+
+   .tunning .wrap {
+    width: 90%;
+    max-width: 1000px;
+    margin: auto;
+}
+
+/* Estilo para la información */
+.tunning .info {
+    text-align: center;
+    padding: 20px;
+    color: #333333; /* Reemplaza $titular con su valor hexadecimal */
+    border-bottom: 1px solid #ff0303;
+}
+
+/* Estilo para párrafos dentro de la información */
+.tunning .info p {
+    margin-top: 20px;
+}
+
+/* Estilo para los encabezados en el formulario */
+.tunning .formulario h2 {
+    font-size: 16px;
+    color: #000000; /* Reemplaza $titular con su valor hexadecimal */
+    margin-bottom: 20px;
+    margin-left: 20px;
+}
+
+/* Estilo para divs dentro del formulario */
+.tunning .formulario > div {
+    padding: 20px 0;
+    border-bottom: 1px solid #000000;
+}
+
+/* Estilo para etiquetas dentro del formulario */
+.tunning .formulario label {
+    display: inline-block;
+    cursor: pointer;
+    color: #ff0000; /* Reemplaza $primario con su valor hexadecimal */
+    position: relative;
+    padding: 5px 15px 5px 51px;
+    font-size: 1em;
+    border-radius: 5px;
+    -webkit-transition: all .3s ease;
+    -o-transition: all .3s ease;
+    transition: all .3s ease;
+}
+
+/* Estilo para etiquetas al pasar el cursor */
+.tunning .formulario label:hover {
+    background: rgba(0, 123, 255, 0.493); /* Reemplaza $primario con su valor hexadecimal */
+}
+
+/* Estilo antes de la etiqueta del formulario */
+.tunning .formulario label:before {
+    content: "";
+    display: inline-block;
+    width: 17px;
+    height: 17px;
+    position: absolute;
+    left: 15px;
+    border-radius: 50%;
+    background: none;
+    border: 3px solid #ff0000; /* Reemplaza $primario con su valor hexadecimal */
+}
+
+/* --------------------------------------- */
+/* ----- Radio Button */
+/* --------------------------------------- */
+input[type="radio"] {
+    display: none;
+    color: #000000;
+    padding: 5px 15px;
+}
+
+input[type="radio"]:checked + label:before {
+    display: none;
+}
+
+input[type="radio"]:checked + label {
+    padding: 5px 15px;
+    background: #ff0000; /* Reemplaza $primario con su valor hexadecimal */
+    border-radius: 2px;
+    color: #ffffff;
+}
+
+.tunning .body {
+  font-size: 16px;
+  background: #5c5757; /* Reemplaza $white con su valor hexadecimal */
+  font-family: "Roboto";
+  color: #000000;
+  margin: 0 15px;
+  padding: 10px;
+  border: 1px solid #000000;
+  border-radius: 5px;
+}
+
+  .tunning .a2{
+    color:#001aff; /* Reemplaza $primario con su valor hexadecimal */
+  }
+
+ .tunning .wrap2 {
+  width: 90%;
+  max-width: 1000px;
+  margin: auto;
+}
+
+/* Estilo para la información */
+.tunning .info2 {
+  text-align: center;
+  padding: 20px;
+  color: #333333; /* Reemplaza $titular con su valor hexadecimal */
+  border-bottom: 1px solid #001aff;
+}
+
+/* Estilo para párrafos dentro de la información */
+.tunning .info2 p {
+  margin-top: 20px;
+}
+
+/* Estilo para los encabezados en el formulario */
+.tunning .formulario2 h2 {
+  font-size: 16px;
+  color: #000000; /* Reemplaza $titular con su valor hexadecimal */
+  margin-bottom: 20px;
+  margin-left: 20px;
+}
+
+/* Estilo para divs dentro del formulario */
+.tunning .formulario2 > div {
+  padding: 20px 0;
+  border-bottom: 1px solid #000000;
+}
+
+/* Estilo para etiquetas dentro del formulario */
+.tunning .formulario2 label {
+  display: inline-block;
+  cursor: pointer;
+  color: #001aff; /* Reemplaza $primario con su valor hexadecimal */
+  position: relative;
+  padding: 5px 15px 5px 51px;
+  font-size: 1em;
+  border-radius: 5px;
+  -webkit-transition: all .3s ease;
+  -o-transition: all .3s ease;
+  transition: all .3s ease;
+}
+
+/* Estilo para etiquetas al pasar el cursor */
+.tunning .formulario2 label:hover {
+  background: rgba(0, 123, 255, 0.493); /* Reemplaza $primario con su valor hexadecimal */
+}
+
+/* Estilo antes de la etiqueta del formulario */
+.tunning .formulario2 label:before {
+  content: "";
+  display: inline-block;
+  width: 17px;
+  height: 17px;
+  position: absolute;
+  left: 15px;
+  border-radius: 50%;
+  background: none;
+  border: 3px solid #001aff; /* Reemplaza $primario con su valor hexadecimal */
+}
+
+input[type="radio2"] {
+  display: none;
+  color: #000000;
+  padding: 5px 15px;
+}
+
+input[type="radio2"]:checked + label:before {
+  display: none;
+}
+
+input[type="radio2"]:checked + label {
+  padding: 5px 15px;
+  background: #001aff; /* Reemplaza $primario con su valor hexadecimal */
+  border-radius: 2px;
+  color: #ffffff;
+}
