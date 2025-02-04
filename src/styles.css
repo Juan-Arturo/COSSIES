@@ -12,7 +12,10 @@
     margin-top: 60px;
     padding: 20px 30px;
     transition: all 0.3s;
+    background-color: rgb(243, 244, 246);
   }
+
+  
   
   @media (max-width: 1199px) {
     #main {
