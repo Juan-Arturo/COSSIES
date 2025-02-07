@@ -1,4 +1,69 @@
 
 <main id="main" class="main">
-    <p>social-service-project works!</p>
+    <div class="container py-5">
+        <h2 class="text-center text-uppercase fw-bold mb-4">Informe de Servicio Social por Proyecto</h2>
+        
+        <form class="row g-3 needs-validation" novalidate enctype="multipart/form-data" method="POST" action="Repoact">
+            
+            <div class="col-md-6">
+                <label for="name" class="form-label">Escuelas Participantes</label>
+                <input type="text" class="form-control" id="escuelasParticipantes" name="escuelasParticipantes" required>
+            </div>
+            
+            <div class="col-md-6">
+                <label for="fecha" class="form-label">FECHA</label>
+                <input type="date" name="fecha" class="form-control" id="fecha" required>
+            </div>
+
+            <table class="table table-bordered">
+
+                <thead>
+                <tr>
+                    <th scope="col">Fecha</th>
+                    <th scope="col">Metas Alacanzadas</th>
+                    <th scope="col">Beneficiarios del Proyecto</th>
+
+                </tr>
+                </thead>
+
+                <tbody>
+                <tr>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <td></td>
+                    <td><p><strong>Total de Personas Beneficiadas</strong></p></td>
+                    <td></td>
+                </tr>
+                
+                </tbody>
+            </table>
+
+            <h3>Evidencia Fotografica</h3>
+            <div class="col-md-6">
+                <label for="imagen" class="form-label">Subir Imagen</label>
+                <input type="file" class="form-control" id="imagen" name="imagen" required>
+            </div>
+                
+            <div class="col-12 text-center mt-4">
+                <button class="sign-in_btn" type="submit">Guardar</button>
+            </div>
+            
+        </form>
+    </div>
 </main>

@@ -1,3 +1,155 @@
 <main id="main" class="main">
-    <p>social-service-evaluation works!</p>
+        <div class="p-4">
+            <h2 class="text-center text-uppercase fw-bold mb-4">EVALUACION DE SERVICIO SOCIAL</h2>
+            <form class="row g-3 needs-validation">
+             
+                <div class="col-md-6">
+                    <label for="nombre" class="form-label">NOMBRE</label>
+                    <input type="text" name="nombre" class="form-control" id="nombre" required>
+                </div>
+
+                <div class="col-md-6">
+                  <label for="programa" class="form-label">PROGRAMA</label>
+                  <input type="text" name="programa" class="form-control" id="programa" required>
+                </div>
+
+                <div class="col-md-6">
+                    <label for="fechaReporte" class="form-label">FECHA QUE SE REPORTA</label>
+                    <input type="date" name="fechaReporte" class="form-control" id="fechaReporte" required>
+                </div>
+
+                <div class="col-md-6">
+                    <label for="nivelAcademico" class="form-label">NIVEL ACADEMICO</label>
+                    <input type="text" name="nivelAcademico" class="form-control" id="nivelAcademico" required>
+                </div>
+
+                <div class="col-md-6">
+                    <label for="institucionEducativa" class="form-label">INSTITUCION EDUCATIVA</label>
+                    <input type="text" name="institucionEducativa" class="form-control" id="institucionEducativa" required>
+                </div>
+
+                <div class="col-md-6">
+                    <label for="telefono" class="form-label">TELEFONO</label>
+                    <input type="text" name="telefono" class="form-control" id="telefono" required>
+                </div>
+
+    
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th scope="col"> </th>
+                            <th scope="col"> </th>
+                            <th colspan="5">Nivel de Desempeño</th>
+                        </tr>
+                    </thead>
+
+
+                    <thead>
+                    <tr>
+                        <th scope="col">No.</th>
+                        <th scope="col">Criterios a Evaluar</th>
+                        <th scope="col">Insuficiente</th>
+                        <th scope="col">Suficiente</th>
+                        <th scope="col">Bueno</th>
+                        <th scope="col">Notable</th>
+                        <th scope="col">Excelente</th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td><p>Cumple en tiempo y forma con las actividades encomendadas alcanzando los objetivos</p></td>
+                        <td><input class="form-check-input" type="radio" name="criterioUno" value="Insuficiente"></td>
+                        <td><input class="form-check-input" type="radio" name="criterioUno" value="Suficiente"></td>
+                        <td><input class="form-check-input" type="radio" name="criterioUno" value="Bueno"></td>
+                        <td><input class="form-check-input" type="radio" name="criterioUno" value="Notable"></td>
+                        <td><input class="form-check-input" type="radio" name="criterioUno" value="Excelente"></td>
+                    </tr>
+
+                    <tr>
+                        <th scope="row">2</th>
+                        <td><p>Las actividades corresponden al perfil academico, del prestador de servicio social</p></td>
+                        <td><input class="form-check-input" type="radio" name="criterioDos" value="Insuficiente"></td>
+                        <td><input class="form-check-input" type="radio" name="criterioDos" value="Suficiente"></td>
+                        <td><input class="form-check-input" type="radio" name="criterioDos" value="Bueno"></td>
+                        <td><input class="form-check-input" type="radio" name="criterioDos" value="Notable"></td>
+                        <td><input class="form-check-input" type="radio" name="criterioDos" value="Excelente"></td>
+                    </tr>
+
+                    <tr>
+                        <th scope="row">3</th>
+                        <td><p>El trato al prestador de servicio social es digno.</p></td>
+                        <td><input class="form-check-input" type="radio" name="criterioTres" value="Insuficiente"></td>
+                        <td><input class="form-check-input" type="radio" name="criterioTres" value="Suficiente"></td>
+                        <td><input class="form-check-input" type="radio" name="criterioTres" value="Bueno"></td>
+                        <td><input class="form-check-input" type="radio" name="criterioTres" value="Notable"></td>
+                        <td><input class="form-check-input" type="radio" name="criterioTres" value="Excelente"></td>
+                    </tr>
+                    
+                    <tr>
+                        <th scope="row">4</th>
+                        <td><p>Trabaja en equipo y se adapta a nuevas situaciones.</p></td>
+                        <td><input class="form-check-input" type="radio" name="criterioCuatro" value="Insuficiente"></td>
+                        <td><input class="form-check-input" type="radio" name="criterioCuatro" value="Suficiente"></td>
+                        <td><input class="form-check-input" type="radio" name="criterioCuatro" value="Bueno"></td>
+                        <td><input class="form-check-input" type="radio" name="criterioCuatro" value="Notable"></td>
+                        <td><input class="form-check-input" type="radio" name="criterioCuatro" value="Excelente"></td>
+                    </tr>
+                    
+                    <tr>
+                        <th scope="row">5</th>
+                        <td><p>Muestra iniciativa en las actividades encomendadas.</p></td>
+                        <td><input class="form-check-input" type="radio" name="criterioCinco" value="Insuficiente"></td>
+                        <td><input class="form-check-input" type="radio" name="criterioCinco" value="Suficiente"></td>
+                        <td><input class="form-check-input" type="radio" name="criterioCinco" value="Bueno"></td>
+                        <td><input class="form-check-input" type="radio" name="criterioCinco" value="Notable"></td>
+                        <td><input class="form-check-input" type="radio" name="criterioCinco" value="Excelente"></td>
+                    </tr>
+                    
+                    <tr>
+                        <th scope="row">6</th>
+                        <td><p>Organiza su tiempo y trabaja de manera proactiva.</p></td>
+                        <td><input class="form-check-input" type="radio" name="criterioSeis" value="Insuficiente"></td>
+                        <td><input class="form-check-input" type="radio" name="criterioSeis" value="Suficiente"></td>
+                        <td><input class="form-check-input" type="radio" name="criterioSeis" value="Bueno"></td>
+                        <td><input class="form-check-input" type="radio" name="criterioSeis" value="Notable"></td>
+                        <td><input class="form-check-input" type="radio" name="criterioSeis" value="Excelente"></td>
+                    </tr>
+                    
+                    <tr>
+                        <th scope="row">7</th>
+                        <td><p>Interpreta la realidad y se sensibiliza aportando soluciones a la problemática con la actividad.</p></td>
+                        <td><input class="form-check-input" type="radio" name="criterioSiete" value="Insuficiente"></td>
+                        <td><input class="form-check-input" type="radio" name="criterioSiete" value="Suficiente"></td>
+                        <td><input class="form-check-input" type="radio" name="criterioSiete" value="Bueno"></td>
+                        <td><input class="form-check-input" type="radio" name="criterioSiete" value="Notable"></td>
+                        <td><input class="form-check-input" type="radio" name="criterioSiete" value="Excelente"></td>
+                    </tr>
+                    
+                    <tr>
+                        <th scope="row">8</th>
+                        <td><p>Realiza sugerencias para beneficio o mejora del programa en el que participa.</p></td>
+                        <td><input class="form-check-input" type="radio" name="criterioOcho" value="Insuficiente"></td>
+                        <td><input class="form-check-input" type="radio" name="criterioOcho" value="Suficiente"></td>
+                        <td><input class="form-check-input" type="radio" name="criterioOcho" value="Bueno"></td>
+                        <td><input class="form-check-input" type="radio" name="criterioOcho" value="Notable"></td>
+                        <td><input class="form-check-input" type="radio" name="criterioOcho" value="Excelente"></td>
+                    </tr>
+                    
+                    </tbody>
+                </table>
+
+                <div class="input-group">
+                    <span class="input-group-text">Observaciones</span>
+                    <textarea class="form-control" name="observaciones" aria-label="With textarea"></textarea>
+                </div>
+            
+                
+            <div class="col-12 text-center mt-4">
+                <button class="sign-in_btn" type="submit">Guardar Evaluación</button>
+            </div>
+
+            </form>
+           </div> 
 </main>
