@@ -32,6 +32,9 @@ export const routes: Routes = [
       { path: "cancellation", component: SuspensionCancellationComponent  },
       { path: "**", redirectTo: "home" }, 
     ],
+
+    
+    
   },
 
 

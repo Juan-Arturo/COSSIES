@@ -1,3 +1,70 @@
 <main id="main" class="main">
-    <p>social-service-activities works!</p>
+    <div class="container py-5">
+        <h2 class="text-center text-uppercase fw-bold mb-4">Reporte de Actividades</h2>
+        
+        <form class="row g-3 needs-validation" novalidate enctype="multipart/form-data" method="POST" action="Repoact">
+            
+            <div class="col-md-6">
+                <label for="name" class="form-label">Nombre del Alumno</label>
+                <input type="text" class="form-control" id="name" name="nombre" required>
+            </div>
+            
+            <div class="col-md-6">
+                <label for="escuela" class="form-label">Nombre de la Escuela</label>
+                <input type="text" class="form-control" id="escuela" name="escuela" required>
+            </div>
+            
+            <div class="col-md-6">
+                <label for="carrera" class="form-label">Carrera</label>
+                <input type="text" class="form-control" id="carrera" name="carrera" required>
+            </div>
+            
+            <div class="col-md-6">
+                <label for="grado" class="form-label">Grado</label>
+                <input type="text" class="form-control" id="grado" name="grado" required>
+            </div>
+            
+            <div class="col-md-6">
+                <label for="nombreDependencia" class="form-label">Dependencia</label>
+                <input type="text" class="form-control" id="nombreDependencia" name="dependencia" required>
+            </div>
+            
+            <div class="col-md-6">
+                <label for="areaAdscripcion" class="form-label">Área de Adscripción</label>
+                <input type="text" class="form-control" id="areaAdscripcion" name="area_adscripcion" required>
+            </div>
+            
+            <div class="col-md-6">
+                <label for="nombrePrograma" class="form-label">Nombre del Programa</label>
+                <input type="text" class="form-control" id="nombrePrograma" name="nombre_programa" required>
+            </div>
+            
+            <div class="col-md-6">
+                <label for="horasCubiertas" class="form-label">Número de Horas Cubiertas</label>
+                <input type="text" class="form-control" id="horasCubiertas" name="horas_cubiertas" required>
+            </div>
+            
+            <div class="col-md-6">
+                <label for="personasBeneficiadas" class="form-label">Número de Personas Beneficiadas</label>
+                <input type="text" class="form-control" id="personasBeneficiadas" name="personas_beneficiadas" required>
+            </div>
+
+            <div class="col-md-6">
+                <label for="imagen" class="form-label">Subir Imagen</label>
+                <input type="file" class="form-control" id="imagen" name="imagen" required>
+            </div>
+            
+            <div class="col-12">
+                <label for="actividades" class="form-label">Actividades Realizadas</label>
+                <textarea class="form-control" id="actividades" name="actividades" placeholder="Describir de manera cuantitativa las actividades en el servicio" rows="3" required></textarea>
+            </div>
+            
+        
+            
+            <div class="col-12 text-center mt-4">
+                <button class="sign-in_btn" type="submit">Guardar</button>
+            </div>
+            
+        </form>
+    </div>
 </main>
