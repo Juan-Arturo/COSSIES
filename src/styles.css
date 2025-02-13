@@ -12,7 +12,10 @@
     margin-top: 60px;
     padding: 20px 30px;
     transition: all 0.3s;
+    background-color: rgb(243, 244, 246);
   }
+
+  
   
   @media (max-width: 1199px) {
     #main {
@@ -82,3 +85,44 @@
       }
     }
     
+
+
+
+    /* esstilos no pertenecientes de panel */
+
+    /* Botones */
+    .sign-in_btn {
+      min-width: 300px; /* Tamaño mínimo del botón */
+      max-width: fit-content; /* Se adapta al contenido */
+      height: 40px; /* Mantiene la altura definida */
+      padding: 0 20px; /* Ajusta el relleno sin agrandar el botón */
+      border: none;
+      background: #572772;
+      border-radius: 7px;
+      color: #ffffff;
+      cursor: pointer;
+    }
+    
+
+.sign-in_ggl,
+.sign-in_apl {
+  width: 100%;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border-radius: 7px;
+  border: 1px solid #e5e5e5;
+  cursor: pointer;
+}
+
+.sign-in_ggl {
+  background: #ffffff;
+  color: #242424;
+}
+
+.sign-in_apl {
+  background: #212121;
+  color: #ffffff;
+}
