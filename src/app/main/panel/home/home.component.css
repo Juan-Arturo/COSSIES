@@ -1,7 +1,6 @@
 /* ENCABEZADO CON IMAGEN DE FONDO Y GRADIENTE DE COLORES */
 .hero {
-  background: linear-gradient(to bottom, #4c2b70, #89205b), 
-              url('/assets/img/pattern_sm-1.png') center/cover;
+  background: url('/assets/img/Pattern_corners_fade.png') bottom center/cover;
   color: white;
   padding: 100px 0;
   text-align: center;
