@@ -1,8 +1,9 @@
 
 <main id="main" class="main">
-    <div class="container py-5">
-        <h2 class="text-center text-uppercase fw-bold mb-4">Informe de Servicio Social por Proyecto</h2>
-        
+    <div class="container py-5 rounded-container">
+        <h3 class="text-center text-uppercase fw-bold">Informe de Servicio Social por Proyecto</h3>
+        <hr class="mb-5">
+
         <form class="row g-3 needs-validation" novalidate enctype="multipart/form-data" method="POST" action="Repoact">
             
             <div class="col-md-6">
@@ -15,46 +16,48 @@
                 <input type="date" name="fecha" class="form-control" id="fecha" required>
             </div>
 
-            <table class="table table-bordered">
+            <div>
+                <table class="table table-bordered shadow">
+    
+                    <thead>
+                    <tr>
+                        <th scope="col">Fecha</th>
+                        <th scope="col">Metas Alacanzadas</th>
+                        <th scope="col">Beneficiarios del Proyecto</th>
+    
+                    </tr>
+                    </thead>
+    
+                    <tbody>
+                    <tr>
+                        <td>x</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+    
+                    <tr>
+                        <td>x</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+    
+                    <tr>
+                        <td>x</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+    
+                    <tr>
+                        <td></td>
+                        <td><p><strong>Total de Personas Beneficiadas</strong></p></td>
+                        <td></td>
+                    </tr>
+                    
+                    </tbody>
+                </table>
+            </div>
 
-                <thead>
-                <tr>
-                    <th scope="col">Fecha</th>
-                    <th scope="col">Metas Alacanzadas</th>
-                    <th scope="col">Beneficiarios del Proyecto</th>
-
-                </tr>
-                </thead>
-
-                <tbody>
-                <tr>
-                    <td>x</td>
-                    <td></td>
-                    <td></td>
-                </tr>
-
-                <tr>
-                    <td>x</td>
-                    <td></td>
-                    <td></td>
-                </tr>
-
-                <tr>
-                    <td>x</td>
-                    <td></td>
-                    <td></td>
-                </tr>
-
-                <tr>
-                    <td></td>
-                    <td><p><strong>Total de Personas Beneficiadas</strong></p></td>
-                    <td></td>
-                </tr>
-                
-                </tbody>
-            </table>
-
-            <h3>Evidencia Fotografica</h3>
+            <h3 class="fw-bold">Evidencia Fotografica</h3>
             <div class="col-md-6">
                 <label for="imagen" class="form-label">Subir Imagen</label>
                 <input type="file" class="form-control" id="imagen" name="imagen" required>
