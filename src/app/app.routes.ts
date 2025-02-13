@@ -10,7 +10,7 @@ import { SocialServiceProjectComponent } from './main/panel/social-service-proje
 import { SuspensionCancellationComponent } from './main/panel/suspension-cancellation/suspension-cancellation.component';
 
 export const routes: Routes = [
-    { path: "", redirectTo: "panel", pathMatch: "full" },
+    { path: "", redirectTo: "welcome", pathMatch: "full" },
      
     
     //Vista de bienvenida
