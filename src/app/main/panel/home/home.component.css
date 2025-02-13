@@ -1,0 +1,45 @@
+/* ENCABEZADO CON IMAGEN DE FONDO Y GRADIENTE DE COLORES */
+.hero {
+  background: linear-gradient(to bottom, #4c2b70, #89205b), 
+              url('/assets/img/pattern_sm-1.png') center/cover;
+  color: white;
+  padding: 100px 0;
+  text-align: center;
+}
+
+
+/* CENTRAR EL TÍTULO Y EL TEXTO */
+.text-center {
+  text-align: center;
+}
+
+/* JUSTIFICAR EL TEXTO */
+.text-justify {
+  text-align: justify;
+}
+
+/* ESTILO PARA LAS TARJETAS */
+.card {
+  border: none;
+  border-radius: 12px;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* COLORES PERSONALIZADOS */
+.text-primary {
+  color: #4c2b70 !important; /* Color principal */
+}
+
+.card-text {
+  color: #89205b; /* Color de texto */
+}
+
+/* ESTILOS ADICIONALES */
+.card-body {
+  padding: 30px;
+}
