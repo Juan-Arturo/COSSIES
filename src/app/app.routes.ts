@@ -39,6 +39,6 @@ export const routes: Routes = [
 
 
 
-    {path: "**", component: PanelComponent},
+    {path: "**", component: WelcomeComponent},
 
 ];
