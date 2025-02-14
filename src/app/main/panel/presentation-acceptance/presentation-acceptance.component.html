@@ -1,91 +1,63 @@
 <main id="main" class="main">
     <div class="p-4 rounded-container">
-        <div class="container mt-5">
-            <h3 class="text-center text-uppercase fw-bold">FORMULARIO DE SERVICIO SOCIAL</h3>
-            <hr class="mb-5">
-            <form class="row g-3 needs-validation" novalidate>
-                <div class="col-md-6">
-                    <label for="name" class="form-label">NOMBRE DEL ALUMNO</label>
-                    <input type="text" class="form-control" id="name" value="" required>
-                </div>
-    
-                <div class="col-md-6">
-                    <label for="grado" class="form-label">GRADO O CURSO</label>
-                    <input type="text" class="form-control" id="grado" value="" required>
-                </div>
-    
-                <div class="col-md-6">
-                    <label for="escuela" class="form-label">NOMBRE DE LA ESCUELA</label>
-                    <input type="text" class="form-control" id="escuela" value="" required>
-                </div>
-    
-                <div class="col-md-6">
-                    <label for="direccion" class="form-label">DIRECCION DE LA ESCUELA</label>
-                    <input type="text" class="form-control" id="direccion" value="" required>
-                </div>
-            </form>
+      <h3 class="text-center text-uppercase fw-bold">Formulario de Servicio Social</h3>
+      <hr>
+  
+      <form (ngSubmit)="onSubmit()" novalidate>
+        <div class="row">
+          <div class="col-md-6">
+            <label>Nombre del Alumno</label>
+            <input type="text" class="form-control" [(ngModel)]="nombreAlumno" name="nombreAlumno" required>
+          </div>
+  
+          <div class="col-md-6">
+            <label>Grado</label>
+            <input type="text" class="form-control" [(ngModel)]="grado" name="grado" required>
+          </div>
+  
+          <div class="col-md-6">
+            <label>Escuela</label>
+            <input type="text" class="form-control" [(ngModel)]="escuela" name="escuela" required>
+          </div>
+  
+          <div class="col-md-6">
+            <label>Dirección de la Escuela</label>
+            <input type="text" class="form-control" [(ngModel)]="direccionEscuela" name="direccionEscuela" required>
+          </div>
+  
+          <div class="col-md-6">
+            <label>Teléfono</label>
+            <input type="text" class="form-control" [(ngModel)]="telefono" name="telefono" required>
+          </div>
+  
+          <div class="col-md-6">
+            <label>Nombre de la Dependencia</label>
+            <input type="text" class="form-control" [(ngModel)]="nombreDependencia" name="nombreDependencia" required>
+          </div>
+  
+          <div class="col-md-6">
+            <label>Área Específica</label>
+            <input type="text" class="form-control" [(ngModel)]="areaEspecifica" name="areaEspecifica" required>
+          </div>
+  
+          <div class="col-md-6">
+            <label>Fecha de Inicio</label>
+            <input type="date" class="form-control" [(ngModel)]="fechaInicio" name="fechaInicio" required>
+          </div>
+  
+          <div class="col-md-6">
+            <label>Fecha de Conclusión</label>
+            <input type="date" class="form-control" [(ngModel)]="fechaConclusion" name="fechaConclusion" required>
+          </div>
         </div>
-    
-        <div class="p-4">
-            <h3 class="text-center text-uppercase fw-bold mt-5">DATOS DE LA DEPENDENCIA</h3>
-            <hr class="mb-5">
-            <form class="row g-3 needs-validation" novalidate>
-                <div class="col-md-6">
-                    <label for="nombreDependencia" class="form-label">DEPENDENCIA</label>
-                    <input type="text" class="form-control" id="nombreDependencia" value="" required>
-                </div>
-                <div class="col-md-6">
-                    <label for="validationCustom02" class="form-label">AREA ESPECIFICA</label>
-                    <input type="text" class="form-control" id="validationCustom02" value="" required>
-                </div>
-                <div class="col-md-6">
-                    <label for="validationCustom02" class="form-label">DIRECCION DE LA DEPENDENCIA</label>
-                    <input type="text" class="form-control" id="validationCustom03" value="" required>
-                </div>
-                <div class="col-md-6">
-                    <label for="validationCustom02" class="form-label">TELEFONO</label>
-                    <input type="text" class="form-control" id="validationCustom04" value="" required>
-                </div>
-                <div class="col-md-6">
-                    <label for="validationCustom02" class="form-label">JEFE INMEDIATO</label>
-                    <input type="text" class="form-control" id="validationCustom05" value="" required>
-                </div>
-                <div class="col-md-6">
-                    <label for="validationCustom02" class="form-label">CARGO JEFE INMEDIATO</label>
-                    <input type="text" class="form-control" id="validationCustom06" value="" required>
-                </div>
-                <div class="col-md-6">
-                    <label for="validationCustom02" class="form-label">DIAS DE PRESTACION</label>
-                    <input type="text" class="form-control" id="validationCustom07" value="LUNES A VIERNES" required>
-                </div>
-                <div class="col-md-6">
-                    <label for="validationCustom02" class="form-label">CORREO ELECTRONICO</label>
-                    <input type="text" class="form-control" id="validationCustom08" value="" required>
-                </div>
-                <div class="col-md-5 ">
-                    <label for="validationCustom02" class="form-label">PROGRAMA</label>
-                    <input type="text" class="form-control" id="validationCustom009" value="" required>
-                </div>
-                <div class="col-md-3 ">
-                    <label for="validationCustom02" class="form-label">FECHA DE INICIO</label>
-                    <input type="text" class="form-control" id="validationCustom10" value="" required>
-                </div>
-                <div class="col-md-4 ">
-                    <label for="validationCustom02" class="form-label">FECHA DE CONCLUSION</label>
-                    <input type="text" class="form-control" id="validationCustom011" value="" required>
-                </div>
-    
-    
-                <div class="col-12 text-center mt-5">
-                    <button class="sign-in_btn" type="submit" style="width: 200px;">GUARDAR INFORMACION</button>
-                </div>
-                
-    
-            </form>
+  
+        <div class="col-12 text-center mt-4">
+          <button type="submit" class="btn btn-primary">GUARDAR INFORMACIÓN</button>
         </div>
+      </form>
     </div>
-</main>
-
+  </main>
+  
 
 
 
