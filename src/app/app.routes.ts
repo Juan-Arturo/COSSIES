@@ -8,6 +8,7 @@ import { SocialServiceActivitiesComponent } from './main/panel/social-service-ac
 import { SocialServiceEvaluationComponent } from './main/panel/social-service-evaluation/social-service-evaluation.component';
 import { SocialServiceProjectComponent } from './main/panel/social-service-project/social-service-project.component';
 import { SuspensionCancellationComponent } from './main/panel/suspension-cancellation/suspension-cancellation.component';
+import { PdfReportComponent } from './main/panel/pdf-report/pdf-report.component';
 
 export const routes: Routes = [
     { path: "", redirectTo: "welcome", pathMatch: "full" },
@@ -30,6 +31,7 @@ export const routes: Routes = [
       { path: "evaluation", component: SocialServiceEvaluationComponent },
       { path: "proyect", component: SocialServiceProjectComponent },
       { path: "cancellation", component: SuspensionCancellationComponent  },
+      { path: "pdfReport", component: PdfReportComponent },
       { path: "**", redirectTo: "home" }, 
     ],
 
