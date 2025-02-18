@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { jsPDF } from 'jspdf';
+import  jsPDF  from 'jspdf';
+import autoTable from 'jspdf-autotable';
 
 @Component({
   selector: 'app-presentation-acceptance',
@@ -36,61 +37,130 @@ export class PresentationAcceptanceComponent {
     const pageHeight = pdf.internal.pageSize.getHeight();
 
     // Agregar imagen superior
-    pdf.addImage('../../assets/img/NH.jpg', 'JPEG', 10, 10, 190, 25);
+    pdf.addImage('../../assets/img/NH.jpg', 'JPEG', 80, 3, 50, 30);
 
     // Título
     pdf.setFont('Helvetica', 'bold');
-    pdf.setFontSize(14);
-    pdf.text('ASUNTO: CARTA PRESENTACION/ACEPTACION', 20, 50);
+    pdf.setFontSize(12);
+    pdf.text('ASUNTO: ', 93, 42);
+
+    pdf.setFont('Helvetica', 'normal');
+    pdf.text('CARTA PRESENTACIÓN/ACEPTACIÓN', pdf.getTextWidth('ASUNTO: ') + 93, 42);
 
     // Contenido principal
     pdf.setFontSize(12);
+    pdf.setFont('Helvetica', 'bold');
+    pdf.text(`MTRO. VICTOR MANUEL BAEZ ALVARADO`, 20, 52);
+    pdf.text(`COORDINADOR DEL SERVICIO SOCIAL`, 20, 56);
+    pdf.text(`DE INSTITUCIONES DE EDUCACION SUPERIOR`, 20, 60);
+    pdf.text(`Y MEDIA SUPERIOR`, 20, 64);
+    pdf.text(`P R E S E N T E`, 20, 68);
+
     pdf.setFont('Helvetica', 'normal');
-    pdf.text(`MTRO. VICTOR MANUEL BAEZ ALVARADO`, 20, 60);
-    pdf.text(`COORDINADOR DEL SERVICIO SOCIAL`, 20, 66);
-    pdf.text(`DE INSTITUCIONES DE EDUCACION SUPERIOR Y MEDIA SUPERIOR`, 20, 72);
-    pdf.text(`PRESENTE`, 20, 78);
+    pdf.text(`Por medio del presente reciba un cordial y afectuoso saludo, al mismo tiempo, me`, 36, 76);
+    pdf.text(`permito presentar al/la alumn() `, 20, 82);
 
-    pdf.text(`Por medio del presente, me permito presentar al/la alumno(a):`, 20, 90);
-    pdf.text(`${this.nombreAlumno} del ${this.grado} del ${this.escuela}`, 20, 98);
-    pdf.text(`Dirección: ${this.direccionEscuela}, Teléfono: ${this.telefono}`, 20, 106);
+    // Nombre del Alumno en negritas
+    pdf.setFont('Helvetica', 'bold');
+    pdf.text(`${this.nombreAlumno}`, 79, 82);
+    
+    pdf.setFont('Helvetica', 'normal');
+    pdf.text(` del `, 143, 82);
+    
+    pdf.setFont('Helvetica', 'bold');
+    pdf.text(`${this.grado}`, 152, 82);
+    
+    pdf.setFont('Helvetica', 'normal');
+    pdf.text(` del `, 183, 82);
 
-    // Tabla de datos de la dependencia
-    let yPos = 120;
-    pdf.setFillColor(200, 200, 200);
-    pdf.rect(20, yPos, 170, 10, 'F');
-    pdf.setTextColor(0);
-    pdf.text('DATOS DE LA DEPENDENCIA', 85, yPos + 7);
-    yPos += 15;
+    pdf.setFont('Helvetica', 'bold');
+    pdf.text(`${this.escuela}`, 20, 88);
 
-    const fields = [
-      ['DEPENDENCIA:', this.nombreDependencia],
-      ['ÁREA ESPECÍFICA:', this.areaEspecifica],
-      ['DIRECCIÓN:', this.direccionDependencia],
-      ['TELÉFONO:', this.telefonoDependencia],
-      ['JEFE INMEDIATO:', this.jefeInmediato],
-      ['CARGO:', this.cargoJefe],
-      ['DÍAS DE PRESTACIÓN:', this.diasPrestacion],
-      ['CORREO:', this.correo],
-      ['PROGRAMA:', this.programa],
-      ['FECHA DE INICIO:', this.fechaInicio],
-      ['FECHA DE CONCLUSIÓN:', this.fechaConclusion]
-    ];
+    pdf.setFont('Helvetica', 'normal');
+    pdf.text(`, con dirección `, 60, 88);
+    
+    pdf.setFont('Helvetica', 'bold');
+    pdf.text(`${this.direccionEscuela}`, 89, 88);
 
+    pdf.setFont('Helvetica', 'normal');
+    pdf.text(` y teléfono`, 170, 88);
+    
+    pdf.setFont('Helvetica', 'bold');
+    pdf.text(`${this.telefono}`, 20, 94);
+
+    pdf.setFont('Helvetica', 'normal');
+    pdf.text(`, quien está en disposición y tiene interés de realizar su servicio social`, 58, 94);
+    pdf.text(`cubriendo un total de `, 20, 100);
+
+
+    //horas en tatal en negritas
     pdf.setFontSize(10);
+    pdf.setFont('Helvetica', 'bold');
+    // pdf.text(489, 61, 100);
+    pdf.text('horas en total', 70, 100);
+
+    pdf.setFontSize(12);
     pdf.setFont('Helvetica', 'normal');
-    fields.forEach(([label, value]) => {
-      pdf.text(label, 20, yPos);
-      pdf.text(value, 90, yPos);
-      yPos += 8;
+    pdf.text('en el área y programa que a continuación se detalla:', 94, 100);
+
+    // Generar tabla con autoTable
+    autoTable(pdf, { 
+      startY: 107, 
+      head: [['Campo', 'Valor']], 
+      body: [
+        ['DEPENDENCIA:', this.nombreDependencia],
+        ['ÁREA ESPECÍFICA:', this.areaEspecifica],
+        ['DIRECCIÓN:', this.direccionDependencia],
+        ['TELÉFONO:', this.telefonoDependencia],
+        ['JEFE INMEDIATO:', this.jefeInmediato],
+        ['CARGO:', this.cargoJefe],
+        ['DÍAS DE PRESTACIÓN:', this.diasPrestacion],
+        ['CORREO:', this.correo],
+        ['PROGRAMA:', this.programa],
+        ['FECHA DE INICIO:', this.fechaInicio],
+        ['FECHA DE CONCLUSIÓN:', this.fechaConclusion]
+      ],
+      theme: 'grid',
+      styles: {
+        font: 'Helvetica',
+        fontSize: 10,
+        cellPadding: 2,
+        valign: 'middle'
+      },
+      columnStyles: {
+        0: { cellWidth: 50 },
+        1: { cellWidth: 100 }
+      }
     });
+    
+    // Obtener la última posición de la tabla
+    const finalY = (pdf as any).lastAutoTable.finalY || 107;
+    
+
+    // Ajustar posición después de la tabla
+    let yPos = (pdf as any).lastAutoTable.finalY + 10;
+
 
     // Pie de página
-    pdf.text('ATENTAMENTE', 20, yPos + 10);
-    pdf.text(`SAN PABLO APETATITLÁN, A ___ DE ___ DEL 202_`, 20, yPos + 20);
+    pdf.setFontSize(12);
+    pdf.setFont('Helvetica', 'normal');
+    pdf.text('Sin otro particular, dando por entendido, que, al firmar el presente, el alumno es aceptado', 20, yPos);
+    pdf.text(`para realizar su servicio social, quedo de Usted.`, 20, yPos + 5);
+
+    pdf.setFontSize(11);
+    pdf.setFont('Helvetica', 'bold');
+    pdf.text('ATENTAMENTE', 90, yPos + 18);
+    pdf.text(`SAN PABLO APETATITLÁN, DE ANTONIO CARVAJAL A__ DE ___ DEL 202_`, 30, yPos + 22);
+
+    // FIRMAS EN NEGRITA
+    pdf.setFontSize(9);
+    pdf.setFont('Helvetica', 'bold');
+    pdf.text('JEFE INMEDIATO', 40, yPos + 43);
+    pdf.text(`FIRMA DEL RESPONSABLE DE SERVICIO SOCIAL DE LA`, 110, yPos + 43);
+    pdf.text(`INSTITUCIÓN EDUCATIVA`, 135, yPos + 47);
 
     // Imagen inferior derecha
-    pdf.addImage('../../assets/img/COSSIES_logo.png', 'JPEG', pageWidth - 50, pageHeight - 30, 40, 20);
+    pdf.addImage('../../assets/img/COSSIES_logo.png', 'JPEG', pageWidth - 50, pageHeight - 30, 35, 10);
 
     // Guardar el PDF con el nombre específico
     pdf.save('Carta Presentación/Aceptación Servicio Social.pdf');
