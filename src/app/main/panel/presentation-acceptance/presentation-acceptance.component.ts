@@ -103,35 +103,14 @@ export class PresentationAcceptanceComponent {
     pdf.setFont('Helvetica', 'normal');
     pdf.text('en el área y programa que a continuación se detalla:', 94, 100);
 
+    // 
+    pdf.setFontSize(11);
+    pdf.setFont('Helvetica', 'bold');
+    pdf.text('DATOS DE LA DEPENDENCIA:', 20, 108);
+
     // Generar tabla con autoTable
-    autoTable(pdf, { 
-      startY: 107, 
-      head: [['Campo', 'Valor']], 
-      body: [
-        ['DEPENDENCIA:', this.nombreDependencia],
-        ['ÁREA ESPECÍFICA:', this.areaEspecifica],
-        ['DIRECCIÓN:', this.direccionDependencia],
-        ['TELÉFONO:', this.telefonoDependencia],
-        ['JEFE INMEDIATO:', this.jefeInmediato],
-        ['CARGO:', this.cargoJefe],
-        ['DÍAS DE PRESTACIÓN:', this.diasPrestacion],
-        ['CORREO:', this.correo],
-        ['PROGRAMA:', this.programa],
-        ['FECHA DE INICIO:', this.fechaInicio],
-        ['FECHA DE CONCLUSIÓN:', this.fechaConclusion]
-      ],
-      theme: 'grid',
-      styles: {
-        font: 'Helvetica',
-        fontSize: 10,
-        cellPadding: 2,
-        valign: 'middle'
-      },
-      columnStyles: {
-        0: { cellWidth: 50 },
-        1: { cellWidth: 100 }
-      }
-    });
+    
+
     
     // Obtener la última posición de la tabla
     const finalY = (pdf as any).lastAutoTable.finalY || 107;
@@ -160,7 +139,7 @@ export class PresentationAcceptanceComponent {
     pdf.text(`INSTITUCIÓN EDUCATIVA`, 135, yPos + 47);
 
     // Imagen inferior derecha
-    pdf.addImage('../../assets/img/COSSIES_logo.png', 'JPEG', pageWidth - 50, pageHeight - 30, 35, 10);
+    pdf.addImage('../../assets/img/COSSIES_logo.png', 'JPEG', pageWidth - 50, pageHeight - 20, 39, 11);
 
     // Guardar el PDF con el nombre específico
     pdf.save('Carta Presentación/Aceptación Servicio Social.pdf');
