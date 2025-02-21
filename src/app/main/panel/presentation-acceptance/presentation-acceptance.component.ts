@@ -111,18 +111,19 @@ export class PresentationAcceptanceComponent {
     // Generar tabla con autoTable
 autoTable(pdf, {
   startY: 113,
+  margin: { left: 20 }, // Ajusta la posición en X
   body: [
     // Primera columna de la tabla
-    ['DEPENDENCIA', 'ÁREA ESPECÍFICA'],
+    [{ content: 'DEPENDENCIA', styles: { fontStyle: 'bold' } }, { content: 'ÁREA ESPECÍFICA', styles: { fontStyle: 'bold' } }],
     [this.nombreDependencia, this.areaEspecifica],
-    ['DIRECCIÓN DE LA DEPENDENCIA', 'TELÉFONO'],
+    [{ content: 'DIRECCIÓN DE LA DEPENDENCIA', styles: { fontStyle: 'bold' } }, { content: 'TELÉFONO', styles: { fontStyle: 'bold' } }],
     [this.direccionDependencia, this.telefonoDependencia],
-    ['JEFE INMEDIATO', 'CARGO DEL JEFE INMEDIATO'],
+    [{ content: 'JEFE INMEDIATO', styles: { fontStyle: 'bold' } }, { content: 'CARGO DEL JEFE INMEDIATO', styles: { fontStyle: 'bold' } }],
     [this.jefeInmediato, this.cargoJefe],
-    ['DÍAS DE PRESTACIÓN', 'CORREO ELECTRÓNICO'],
+    [{ content: 'DÍAS DE PRESTACIÓN', styles: { fontStyle: 'bold' } }, { content: 'CORREO ELECTRÓNICO', styles: { fontStyle: 'bold' } }],
     [this.diasPrestacion, this.correo],
     // Aquí agregamos las celdas divididas en 3 columnas
-    ['PROGRAMA', 'FECHA DE INICIO', 'FECHA DE CONCLUSIÓN'],
+    [{ content: 'PROGRAMA', styles: { fontStyle: 'bold' } }, { content: 'FECHA DE INICIO', styles: { fontStyle: 'bold' } }, { content: 'FECHA DE CONCLUSIÓN', styles: { fontStyle: 'bold' } }],
     [this.programa, this.fechaInicio, this.fechaConclusion]
   ],
   theme: 'grid',
@@ -130,20 +131,23 @@ autoTable(pdf, {
     font: 'Helvetica',
     fontSize: 10,
     cellPadding: 2,
-    valign: 'middle'
+    valign: 'middle',
+    lineWidth: 0.5, // Grosor de las líneas
+    lineColor: [0, 0, 0] // Color negro para las líneas
   },
   columnStyles: {
-    0: { cellWidth: 60 }, // Primera columna
-    1: { cellWidth: 60 }, // Segunda columna
+    0: { cellWidth: 85 }, // Primera columna
+    1: { cellWidth: 85 }, // Segunda columna
     2: { cellWidth: 60 }  // Tercera columna (solo usada en las últimas dos filas)
   },
-  didDrawCell: function (data) {
-    // Combinar celdas en las filas anteriores a la novena para mantener solo dos columnas
-    if (data.row.index < 8 && data.column.index === 2) {
-      data.cell.colSpan = 0; // Eliminar tercera celda si no es la fila deseada
+  didParseCell: function (data) {
+    // Asegurar que los datos estén en letra normal
+    if (data.row.index % 2 !== 0) {
+      data.cell.styles.fontStyle = 'normal';
     }
   }
 });
+
 
     
     // Obtener la última posición de la tabla
