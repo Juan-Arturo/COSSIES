@@ -109,7 +109,41 @@ export class PresentationAcceptanceComponent {
     pdf.text('DATOS DE LA DEPENDENCIA:', 20, 108);
 
     // Generar tabla con autoTable
-    
+autoTable(pdf, {
+  startY: 113,
+  body: [
+    // Primera columna de la tabla
+    ['DEPENDENCIA', 'ÁREA ESPECÍFICA'],
+    [this.nombreDependencia, this.areaEspecifica],
+    ['DIRECCIÓN DE LA DEPENDENCIA', 'TELÉFONO'],
+    [this.direccionDependencia, this.telefonoDependencia],
+    ['JEFE INMEDIATO', 'CARGO DEL JEFE INMEDIATO'],
+    [this.jefeInmediato, this.cargoJefe],
+    ['DÍAS DE PRESTACIÓN', 'CORREO ELECTRÓNICO'],
+    [this.diasPrestacion, this.correo],
+    // Aquí agregamos las celdas divididas en 3 columnas
+    ['PROGRAMA', 'FECHA DE INICIO', 'FECHA DE CONCLUSIÓN'],
+    [this.programa, this.fechaInicio, this.fechaConclusion]
+  ],
+  theme: 'grid',
+  styles: {
+    font: 'Helvetica',
+    fontSize: 10,
+    cellPadding: 2,
+    valign: 'middle'
+  },
+  columnStyles: {
+    0: { cellWidth: 60 }, // Primera columna
+    1: { cellWidth: 60 }, // Segunda columna
+    2: { cellWidth: 60 }  // Tercera columna (solo usada en las últimas dos filas)
+  },
+  didDrawCell: function (data) {
+    // Combinar celdas en las filas anteriores a la novena para mantener solo dos columnas
+    if (data.row.index < 8 && data.column.index === 2) {
+      data.cell.colSpan = 0; // Eliminar tercera celda si no es la fila deseada
+    }
+  }
+});
 
     
     // Obtener la última posición de la tabla
