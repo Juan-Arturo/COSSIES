@@ -45,7 +45,7 @@ export class ReleaseLetterComponent {
     const availableWidth = pageWidth - marginLeft - marginRight;
 
     // Agregar imagen de fondo
-    const fondoImagen = '../../assets/img/originalFondo.jpg';
+    const fondoImagen = '../../assets/img/cosiesFondo.jpg';
     doc.addImage(fondoImagen, 'PNG', 0, 0, pageWidth, pageHeight);
 
     // Asunto
@@ -108,4 +108,3 @@ export class ReleaseLetterComponent {
 //../../assets/img/cosiesFondo
 // ../../assets/img/COSSIES_logo.png
 
-/*opcion */
