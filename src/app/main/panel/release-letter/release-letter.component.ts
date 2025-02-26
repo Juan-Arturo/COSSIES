@@ -41,17 +41,12 @@ export class ReleaseLetterComponent {
     const marginLeft = 20;
     const marginRight = 20;
     const pageWidth = doc.internal.pageSize.getWidth();
+    const pageHeight = doc.internal.pageSize.getHeight();
     const availableWidth = pageWidth - marginLeft - marginRight;
 
-    // URLs de los logos
-    const logoSuperior = '../../assets/img/NH.jpg'; // Ruta del logo superior
-    const logoInferior = '../../assets/img/COSSIES_logo.png'; // Ruta del logo inferior
-
-    // Logo superior
-    const logoWidth = 50;
-    const logoHeight = 30;
-    const centerX = (pageWidth - logoWidth) / 2;
-    doc.addImage(logoSuperior , 'PNG', centerX, 10, logoWidth, logoHeight);
+    // Agregar imagen de fondo
+    const fondoImagen = '../../assets/img/originalFondo.jpg';
+    doc.addImage(fondoImagen, 'PNG', 0, 0, pageWidth, pageHeight);
 
     // Asunto
     doc.setFontSize(13);
@@ -103,9 +98,6 @@ export class ReleaseLetterComponent {
     doc.setFontSize(8);
     doc.text('C.C.P. ARCHIVO DE LA COSSIES', marginLeft, 240);
 
-    // Logo inferior
-    doc.addImage(logoInferior, 'PNG', pageWidth - 50 - marginRight, 245, 50, 30);
-
     // Generar PDF
     doc.save('carta-liberacion.pdf');
   }
@@ -113,6 +105,7 @@ export class ReleaseLetterComponent {
 
 
 // ../../assets/img/NH.jpg
+//../../assets/img/cosiesFondo
 // ../../assets/img/COSSIES_logo.png
 
 /*opcion */
