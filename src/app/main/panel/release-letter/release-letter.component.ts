@@ -9,83 +9,105 @@ import { jsPDF } from "jspdf";
   styleUrl: './release-letter.component.css'
 })
 export class ReleaseLetterComponent {
+
+  // Variables para datos del alumno
+  nombreAlumno: string = 'JUAN ARTURO GALINDO PEREZ';
+  semestre: string = 'NOVENO SEMESTRE';
+  institucion: string = 'UNIVERSIDAD POLITECNICA DE TLAXCALA';
+  horasServicio: number = 160;
+  areaAdscripcion: string = 'TECNOLOGÍAS DE LA INFORMACIÓN';
+  nombrePrograma: string = 'DESARROLLO WEB';
+  nombreDependencia: string = 'SEPE-USET';
+  fechaInicio: string = '2024-01-01';
+  fechaFin: string = '2024-06-30';
+  fechaLiberacion: string = new Date().toISOString().split('T')[0];
+  
+
+ 
+
   
   constructor() { }
 
-
    //PDF
    generatePdf() {
+    // Configurar tamaño carta
     const doc = new jsPDF({
       unit: 'mm',
       format: 'letter',
-      orientation: 'portrait',
+      orientation: 'portrait'
     });
-  
+
+    // Márgenes y dimensiones
     const marginLeft = 20;
     const marginRight = 20;
     const pageWidth = doc.internal.pageSize.getWidth();
     const availableWidth = pageWidth - marginLeft - marginRight;
-  
-    const logoImg = new Image();
-    logoImg.src = '../../assets/img/NH.jpg';
-    const imgWidth = 50;
-    const imgHeight = 30;
-    const centerX = (pageWidth - imgWidth) / 2;
-    doc.addImage(logoImg, 'PNG', centerX, 10, imgWidth, imgHeight);
-  
-    doc.setFontSize(14);
-    const asuntoText = 'ASUNTO: CARTA DE LIBERACIÓN';
-    const textWidth = doc.getTextWidth(asuntoText);
-    const textX = pageWidth - textWidth - 20;
-    doc.text(asuntoText, textX, 50);
-  
-    doc.setFont('helvetica', 'bold');
-    doc.setFontSize(14);
-    doc.text('MTRO. VICTOR MANUEL BAEZ ALVARADO', 20, 60);
-    doc.text('COORDINADOR DEL SERVICIO SOCIAL', 20, 65);
-    doc.text('DE INSTITUCIONES DE EDUCACIÓN SUPERIOR', 20, 70);
-    doc.text('Y MEDIA SUPERIOR', 20, 75);
-    doc.text('P R E S E N T E', 20, 80);
-  
-    doc.setFont('helvetica', 'normal');
+
+    // URLs de los logos
+    const logoSuperior = '../../assets/img/NH.jpg'; // Ruta del logo superior
+    const logoInferior = '../../assets/img/COSSIES_logo.png'; // Ruta del logo inferior
+
+    // Logo superior
+    const logoWidth = 50;
+    const logoHeight = 30;
+    const centerX = (pageWidth - logoWidth) / 2;
+    doc.addImage(logoSuperior , 'PNG', centerX, 10, logoWidth, logoHeight);
+
+    // Asunto
     doc.setFontSize(13);
-    const textLines = [
-      'Por medio del presente reciba un cordial y afectuoso saludo, al mismo tiempo,',
-      'me permito informar que el/la alumn() NOMBRE DEL/LA ALUMN() del SEMESTRE',
-      'del NOMBRE DE LA INSTITUCIÓN EDUCATIVA, ha CONCLUIDO satisfactoriamente',
-      'su SERVICIO SOCIAL, cubriendo un total de ____ HORAS en el área ________',
-      'de la modalidad de __________ dentro de esta dependencia NOMBRE DE LA',
-      'DEPENDENCIA, iniciando el día ____________ y concluyendo el día ____________.',
-      'Por lo tanto, no tengo inconveniente en extender la presente CARTA DE LIBERACIÓN,',
-      'a los _______ días del mes de _______ del 202_.'
-    ];
-  
-    let y = 90;
-    textLines.forEach(line => {
-      const lines = doc.splitTextToSize(line, availableWidth);
-      lines.forEach((line: string) => {
-        doc.text(line, marginLeft, y);
-        y += 8; // Ajusta este valor según el espacio que desees entre líneas
-      });
+    const asuntoText = 'ASUNTO: CARTA DE LIBERACIÓN';
+    const asuntoWidth = doc.getTextWidth(asuntoText);
+    doc.text(asuntoText, pageWidth - asuntoWidth - marginRight, 50);
+
+    // Encabezado
+    doc.setFont('helvetica', 'bold');
+    doc.text('MTRO. VICTOR MANUEL BAEZ ALVARADO', marginLeft, 70);
+    doc.text('COORDINADOR DEL SERVICIO SOCIAL', marginLeft, 75);
+    doc.text('DE INSTITUCIONES DE EDUCACIÓN SUPERIOR', marginLeft, 80);
+    doc.text('Y MEDIA SUPERIOR', marginLeft, 85);
+    doc.text('P R E S E N T E', marginLeft, 95);
+
+    // Cuerpo del texto
+    doc.setFont('helvetica', 'normal');
+    doc.setFontSize(12);
+    const texto1 = `      Por medio del presente reciba un cordial y afectuoso saludo, al mismo tiempo, me permito informar que el/la alumn() ${this.nombreAlumno} del ${this.semestre} del ${this.institucion}, ha CONCLUIDO satisfactoriamente su SERVICIO SOCIAL, cubriendo un total de ${this.horasServicio} HORAS en el área ${this.areaAdscripcion} de la modalidad de ${this.nombrePrograma} dentro de esta dependencia ${this.nombreDependencia}, iniciando el día ${this.fechaInicio} y concluyendo el día ${this.fechaFin}. `;
+
+    doc.setFont('helvetica', 'normal');
+    doc.text(texto1, marginLeft, 110, {
+      align: 'justify',
+      maxWidth: availableWidth
     });
-  
-    doc.text('ATENTAMENTE', marginLeft, y + 10);
-    doc.text('A LA FECHA DE SU PRESENTACION', marginLeft, y + 20);
-  
-    doc.text('FIRMA DEL TITULAR O JEFE INMEDIATO', marginLeft, y + 40);
-  
+
+    const texto2 = `    Por lo tanto, no tengo inconveniente en extender la presente CARTA DE LIBERACIÓN, a los ${new Date(this.fechaLiberacion).toLocaleString('es-ES', {day: 'numeric'})} días del mes de ${new Date(this.fechaLiberacion).toLocaleString('es-ES', {month: 'long'})} del ${new Date(this.fechaLiberacion).getFullYear()}.`;
+    doc.text(texto2, marginLeft, 145, {
+      align: 'justify',
+      maxWidth: availableWidth
+    });
+
+      
+    const texto3 = `Sin otro particular, quedo de usted.`;
+    doc.text(texto3, marginLeft, 165, {
+      align: 'justify',
+      maxWidth: availableWidth
+    });
+
+    // Pie de documento
+    doc.text('ATENTAMENTE', pageWidth/2, 190, {align: 'center'});
+    doc.text('A LA FECHA DE SU PRESENTACION', pageWidth/2, 195, {align: 'center'});
+
+    // Espacio para firma
+    doc.line(pageWidth/2 - 30, 220, pageWidth/2 + 30, 220);
+    doc.text('FIRMA DEL TITULAR O JEFE INMEDIATO', pageWidth/2, 225, {align: 'center'});
+
+    // Texto pequeño
     doc.setFontSize(8);
-    doc.text('C.C.P. ARCHIVO DE LA COSSIES', marginLeft, y + 50);
-  
-    const logoImg2 = new Image();
-    logoImg2.src = '../../assets/img/COSSIES_logo.png';
-    const img2Width = 50;
-    const img2Height = 20;
-    const img2X = pageWidth - img2Width - 10;
-    const img2Y = 250;
-    doc.addImage(logoImg2, 'PNG', img2X, img2Y, img2Width, img2Height);
-  
-    doc.save('CartaDeLiberacion.pdf');
+    doc.text('C.C.P. ARCHIVO DE LA COSSIES', marginLeft, 240);
+
+    // Logo inferior
+    doc.addImage(logoInferior, 'PNG', pageWidth - 50 - marginRight, 245, 50, 30);
+
+    // Generar PDF
+    doc.save('carta-liberacion.pdf');
   }
 }
 
@@ -93,101 +115,4 @@ export class ReleaseLetterComponent {
 // ../../assets/img/NH.jpg
 // ../../assets/img/COSSIES_logo.png
 
-
-
-
-/*opcion 1
-    generatePdf() {
-    // Configurar el tamaño de la hoja a carta (215.9 mm de ancho x 279.4 mm de alto)
-    const doc = new jsPDF({
-      unit: 'mm', // Usar milímetros como unidad
-      format: 'letter', // Tamaño carta
-      orientation: 'portrait', // Orientación vertical
-    });
-  
-    // Márgenes
-    const marginLeft = 20; // Margen izquierdo
-    const marginRight = 20; // Margen derecho
-    const pageWidth = doc.internal.pageSize.getWidth(); // Ancho de la página
-    const availableWidth = pageWidth - marginLeft - marginRight; // Ancho disponible
-  
-    // Añadir el logo en el centro
-    const logoImg = new Image();
-    logoImg.src = '../../assets/img/NH.jpg'; // Ruta del logo
-    const imgWidth = 50; // Ancho de la imagen
-    const imgHeight = 30; // Alto de la imagen
-    const centerX = (pageWidth - imgWidth) / 2; // Centrar horizontalmente
-    doc.addImage(logoImg, 'PNG', centerX, 10, imgWidth, imgHeight);
-  
-    // Añadir el texto ASUNTO abajo a la derecha
-    doc.setFontSize(14);
-    const asuntoText = 'ASUNTO: CARTA DE LIBERACIÓN';
-    const textWidth = doc.getTextWidth(asuntoText); // Obtener el ancho del texto
-    const textX = pageWidth - textWidth - 20; // Posición X (derecha con margen de 10)
-    doc.text(asuntoText, textX, 50); // Posición Y ajustada
-  
-    // Activar negrita para la siguiente sección
-    doc.setFont('helvetica', 'bold'); // Activar negrita
-    doc.setFontSize(14);
-    doc.text('MTRO. VICTOR MANUEL BAEZ ALVARADO', 20, 60);
-    doc.text('COORDINADOR DEL SERVICIO SOCIAL', 20, 65);
-    doc.text('DE INSTITUCIONES DE EDUCACIÓN SUPERIOR', 20, 70);
-    doc.text('Y MEDIA SUPERIOR', 20, 75);
-    doc.text('P R E S E N T E', 20, 80);
-  
-    // Volver a normal después de la sección en negrita
-    doc.setFont('helvetica', 'normal'); // Desactivar negrita
-  
-    // Función para estirar el texto y ocupar el ancho disponible
-    function stretchText(doc: any, text: string, x: number, y: number, maxWidth: number) {
-      const words = text.split(' ');
-      const totalWordsWidth = words.reduce((acc, word) => acc + doc.getTextWidth(word), 0);
-      const totalSpacesWidth = maxWidth - totalWordsWidth;
-      const spaceWidth = totalSpacesWidth / (words.length - 1);
-  
-      let currentX = x;
-      words.forEach((word, index) => {
-        doc.text(word, currentX, y);
-        currentX += doc.getTextWidth(word) + spaceWidth;
-      });
-    }
-  
-    // Añadir el cuerpo del texto estirado
-    doc.setFontSize(12);
-  
-    stretchText(doc, '    Por medio del presente reciba un cordial y afectuoso saludo, al mismo tiempo,', marginLeft, 90, availableWidth);
-    stretchText(doc, 'me permito informar que el/la alumn() NOMBRE DEL/LA ALUMN() del SEMESTRE', marginLeft, 100, availableWidth);
-    stretchText(doc, 'del NOMBRE DE LA INSTITUCIÓN EDUCATIVA, ha CONCLUIDO satisfactoriamente', marginLeft, 110, availableWidth);
-    stretchText(doc, 'su SERVICIO SOCIAL, cubriendo un total de ____ HORAS en el área ________', marginLeft, 120, availableWidth);
-    stretchText(doc, 'de la modalidad de __________ dentro de esta dependencia NOMBRE DE LA', marginLeft, 130, availableWidth);
-    stretchText(doc, 'DEPENDENCIA, iniciando el día ____________ y concluyendo el día ____________.', marginLeft, 140, availableWidth);
-  
-    // Añadir el texto de liberación
-    stretchText(doc, 'Por lo tanto, no tengo inconveniente en extender la presente CARTA DE LIBERACIÓN,', marginLeft, 150, availableWidth);
-    stretchText(doc, 'a los _______ días del mes de _______ del 202_.', marginLeft, 160, availableWidth);
-  
-    // Añadir el texto de despedida
-    doc.text('ATENTAMENTE', marginLeft, 170);
-    doc.text('A LA FECHA DE SU PRESENTACION', marginLeft, 180);
-  
-    // Espacio para la firma
-    doc.text('FIRMA DEL TITULAR O JEFE INMEDIATO', marginLeft, 200);
-  
-    // Añadir el texto final
-    doc.setFontSize(8);
-    doc.text('C.C.P. ARCHIVO DE LA COSSIES', marginLeft, 210);
-  
-    // Añadir el segundo logo abajo a la derecha
-    const logoImg2 = new Image();
-    logoImg2.src = '../../assets/img/COSSIES_logo.png'; // Ruta del segundo logo
-    const img2Width = 50; // Ancho de la segunda imagen
-    const img2Height = 20; // Alto de la segunda imagen
-    const img2X = pageWidth - img2Width - 10; // Posición X (derecha con margen de 10)
-    const img2Y = 250; // Posición Y (abajo)
-    doc.addImage(logoImg2, 'PNG', img2X, img2Y, img2Width, img2Height);
-  
-    // Guardar el PDF
-    doc.save('CartaDeLiberacion.pdf');
-  }
-}
-*/
+/*opcion */
