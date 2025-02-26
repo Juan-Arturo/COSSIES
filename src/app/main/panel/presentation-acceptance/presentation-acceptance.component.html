@@ -1,63 +1,102 @@
 <main id="main" class="main">
     <div class="p-4 rounded-container">
-      <h3 class="text-center text-uppercase fw-bold">Formulario de Servicio Social</h3>
-      <hr>
+        <div class="container mt-5">
+            <h3 class="text-center text-uppercase fw-bold">FORMULARIO DE SERVICIO SOCIAL</h3>
+            <hr class="mb-5">
+            <form (ngSubmit)="onSubmit()" novalidate>
+            <div class="row">
+                <div class="col-md-6">                  
+                    <label>NOMBRE COMPLETO DEL ALUMNO</label>
+                    <input type="text" class="form-control" [(ngModel)]="nombreAlumno" name="nombreAlumno" required>
+                </div>
+    
+                <div class="col-md-6">
+                    <label>GRADO / CURSO / SEMESTRE</label>
+                    <input type="text" class="form-control" [(ngModel)]="grado" name="grado" required>
+                </div>
+    
+                <div class="col-md-6">
+                    <label>NOMBRE DE LA ESCUELA</label>
+                    <input type="text" class="form-control" [(ngModel)]="escuela" name="escuela" required>
+                </div>
+    
+                <div class="col-md-6">
+                    <label>DIRECCION DE LA ESCUELA</label>
+                    <input type="text" class="form-control" [(ngModel)]="direccionEscuela" name="direccionEscuela" required>
+                </div>
   
-      <form (ngSubmit)="onSubmit()" novalidate>
-        <div class="row">
-          <div class="col-md-6">
-            <label>Nombre del Alumno</label>
-            <input type="text" class="form-control" [(ngModel)]="nombreAlumno" name="nombreAlumno" required>
-          </div>
+                <div class="col-md-5 "></div>
   
-          <div class="col-md-6">
-            <label>Grado</label>
-            <input type="text" class="form-control" [(ngModel)]="grado" name="grado" required>
-          </div>
+                <div class="col-md-2 ">
+                  <label>TELEFONO DEL ALUMNO</label>
+                  <input type="text" class="form-control" [(ngModel)]="telefonoAlumno" name="telefono" required>
   
-          <div class="col-md-6">
-            <label>Escuela</label>
-            <input type="text" class="form-control" [(ngModel)]="escuela" name="escuela" required>
-          </div>
+              </div>
   
-          <div class="col-md-6">
-            <label>Dirección de la Escuela</label>
-            <input type="text" class="form-control" [(ngModel)]="direccionEscuela" name="direccionEscuela" required>
-          </div>
-  
-          <div class="col-md-6">
-            <label>Teléfono</label>
-            <input type="text" class="form-control" [(ngModel)]="telefono" name="telefono" required>
-          </div>
-  
-          <div class="col-md-6">
-            <label>Nombre de la Dependencia</label>
-            <input type="text" class="form-control" [(ngModel)]="nombreDependencia" name="nombreDependencia" required>
-          </div>
-  
-          <div class="col-md-6">
-            <label>Área Específica</label>
-            <input type="text" class="form-control" [(ngModel)]="areaEspecifica" name="areaEspecifica" required>
-          </div>
-  
-          <div class="col-md-6">
-            <label>Fecha de Inicio</label>
-            <input type="date" class="form-control" [(ngModel)]="fechaInicio" name="fechaInicio" required>
-          </div>
-  
-          <div class="col-md-6">
-            <label>Fecha de Conclusión</label>
-            <input type="date" class="form-control" [(ngModel)]="fechaConclusion" name="fechaConclusion" required>
-          </div>
+              <div class="col-md-4 "></div>
+            </div>
+            </form>
         </div>
+    
+        <div class="p-4">
+            <h3 class="text-center text-uppercase fw-bold mt-5">DATOS DE LA DEPENDENCIA</h3>
+            <hr class="mb-5">
+            <form (ngSubmit)="onSubmit()" novalidate>
+              <div class="row">
+                <div class="col-md-6">
+                    <label>NOMBRE DE LA DEPENDENCIA</label>
+                    <input type="text" class="form-control" [(ngModel)]="nombreDependencia" name="nombreDependencia" required>
+                </div>
+                <div class="col-md-6">
+                    <label>AREA ESPECIFICA</label>
+                    <input type="text" class="form-control" [(ngModel)]="areaEspecifica" name="areaEspecifica" required>
+                </div>
+                <div class="col-md-6">
+                    <label>DIRECCION DE LA DEPENDENCIA</label>
+                    <input type="text" class="form-control" [(ngModel)]="direccionDependencia" name="direccionDependencia" required>
+                </div>
+                <div class="col-md-6">
+                    <label>TELEFONO DE LA DEPENDENCIA</label>
+                    <input type="text" class="form-control" [(ngModel)]=" telefonoDependencia" name=" telefonoDependencia" required>
+                </div>
+                <div class="col-md-6">
+                    <label>JEFE INMEDIATO</label>
+                    <input type="text" class="form-control" [(ngModel)]="jefeInmediato" name="jefeInmediato" required>
+                </div>
+                <div class="col-md-6">
+                    <label>CARGO JEFE INMEDIATO</label>
+                    <input type="text" class="form-control" [(ngModel)]="cargoJefeInmediato" name="cargoJefeInmediato" required>
+                </div>
+                <div class="col-md-6">
+                    <label for="validationCustom02" class="form-label">DIAS DE PRESTACION</label>
+                    <input type="text" class="form-control" id="validationCustom07" value="LUNES A VIERNES" required>
+                </div>
+                <div class="col-md-6">
+                    <label>CORREO ELECTRONICO</label>
+                    <input type="text" class="form-control" [(ngModel)]="correoDependencia" name="correoDependencia" required>
   
-        <div class="col-12 text-center mt-4">
-          <button type="submit" class="sign-in_btn">GUARDAR INFORMACIÓN</button>
+                </div>
+                <div class="col-md-5 ">
+                    <label>PROGRAMA</label>
+                    <input type="text" class="form-control" [(ngModel)]="programa" name="programa" required>
+                </div>
+                <div class="col-md-3 ">
+                    <label>FECHA DE INICIO</label>
+                    <input type="date" class="form-control" [(ngModel)]="fechaInicio" name="fechaInicio" required>
+                </div>
+                <div class="col-md-4 ">
+                    <label>FECHA DE CONCLUSION</label>
+                    <input type="date" class="form-control" [(ngModel)]="fechaConclusion" name="fechaConclusion" required>
+                </div>
+    
+    
+                <div class="col-12 text-center mt-5">
+                    <button class="sign-in_btn" type="submit" style="width: 200px;">GUARDAR INFORMACION</button>
+                </div>
+              </div>        
+            </form>
         </div>
-      </form>
     </div>
   </main>
-  
-
 
 
