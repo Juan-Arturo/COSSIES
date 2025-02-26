@@ -45,7 +45,7 @@ export class ReleaseLetterComponent {
     const availableWidth = pageWidth - marginLeft - marginRight;
 
     // Agregar imagen de fondo
-    const fondoImagen = '../../assets/img/cosiesFondo.jpg';
+    const fondoImagen = '../../assets/img/fondoCOSSIES.jpg';
     doc.addImage(fondoImagen, 'PNG', 0, 0, pageWidth, pageHeight);
 
     // Asunto
@@ -87,6 +87,7 @@ export class ReleaseLetterComponent {
     });
 
     // Pie de documento
+    doc.setFont('helvetica', 'bold');
     doc.text('ATENTAMENTE', pageWidth/2, 190, {align: 'center'});
     doc.text('A LA FECHA DE SU PRESENTACION', pageWidth/2, 195, {align: 'center'});
 
@@ -95,6 +96,7 @@ export class ReleaseLetterComponent {
     doc.text('FIRMA DEL TITULAR O JEFE INMEDIATO', pageWidth/2, 225, {align: 'center'});
 
     // Texto pequeño
+    doc.setFont('helvetica', 'normal');
     doc.setFontSize(8);
     doc.text('C.C.P. ARCHIVO DE LA COSSIES', marginLeft, 240);
 
