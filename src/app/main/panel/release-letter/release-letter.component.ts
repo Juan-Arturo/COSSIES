@@ -100,9 +100,13 @@ export class ReleaseLetterComponent {
     doc.setFontSize(8);
     doc.text('C.C.P. ARCHIVO DE LA COSSIES', marginLeft, 240);
 
-    // Generar PDF
-    doc.save('carta-liberacion.pdf');
+    // Abrir el PDF en una nueva pestaña
+    const pdfOutput = doc.output('bloburl');
+    window.open(pdfOutput, '_blank');
   }
+  
+  
+  
 }
 
 
@@ -110,3 +114,5 @@ export class ReleaseLetterComponent {
 //../../assets/img/cosiesFondo
 // ../../assets/img/COSSIES_logo.png
 
+// Generar PDF
+//doc.save('carta-liberacion.pdf');
