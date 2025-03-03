@@ -37,8 +37,9 @@ export class PresentationAcceptanceComponent {
     const pageWidth = pdf.internal.pageSize.getWidth();
     const pageHeight = pdf.internal.pageSize.getHeight();
 
-    // Agregar imagen superior
-    pdf.addImage('../../assets/img/NH.jpg', 'JPEG', 80, 3, 50, 30);
+     // Agregar imagen de fondo
+     const fondoImagen = '../../assets/img/fondoCOSSIES.jpg';
+     pdf.addImage(fondoImagen, 'PNG', 0, 0, pageWidth, pageHeight);
 
     // Título
     pdf.setFont('Helvetica', 'bold');
@@ -182,21 +183,13 @@ autoTable(pdf, {
     pdf.text(`FIRMA DEL RESPONSABLE DE SERVICIO SOCIAL DE LA`, 110, yPos + 45);
     pdf.text(`INSTITUCIÓN EDUCATIVA`, 135, yPos + 49);
 
-    // Imagen inferior derecha
-    pdf.addImage('../../assets/img/COSSIES_logo.png', 'JPEG', pageWidth - 50, pageHeight - 28, 39, 11);
-
     // FIRMAS EN NEGRITA
     pdf.setFontSize(5);
     pdf.setFont('Helvetica', 'normal');
     pdf.text('C..C.P. ARCHIVO DE LA COSSIES', 20, yPos + 80);
 
-    // Línea horizontal pie de pagina
-    pdf.setLineWidth(6); // Grosor de la línea
-    pdf.setDrawColor(81, 64, 134); // Color personalizado en RGB
-    pdf.line(2, pageHeight - 10, pageWidth - 2, pageHeight - 10); // (x1, y1, x2, y2)
-    
     // Guardar el PDF con el nombre específico
-    pdf.save('Carta Presentación/Aceptación Servicio Social.pdf');
+    pdf.save('Carta_Presentacion_Aceptacion_Servicio_Social.pdf');
   }
 
   // Método que se ejecuta al enviar el formulario
