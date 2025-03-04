@@ -1,1 +1,135 @@
 /* You can add global styles to this file, and also import other style files */
+
+/*--------------------------------------------------------------
+                          PANEL STYLES
+--------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------
+# Main
+--------------------------------------------------------------*/
+#main {
+    margin-top: 60px;
+    padding: 20px 30px;
+    transition: all 0.3s;
+    background-color: rgb(243, 244, 246);
+  }
+
+  
+  
+  @media (max-width: 1199px) {
+    #main {
+      padding: 20px;
+    }
+  }
+  
+  /*--------------------------------------------------------------
+  # Sidebar
+  --------------------------------------------------------------*/
+  .sidebar {
+      position: fixed;
+      top: 60px;
+      left: 0;
+      bottom: 0;
+      width: 300px;
+      z-index: 996;
+      transition: all 0.3s;
+      padding: 20px;
+      overflow-y: auto;
+      scrollbar-width: thin;
+      scrollbar-color: #aab7cf transparent;
+      box-shadow: 0px 0px 20px rgba(1, 41, 112, 0.1);
+      background-color: #fff;
+    }
+    
+    a {
+    color: #572772;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    color: #001aff;
+    text-decoration: none;
+  }
+  
+    @media (max-width: 1199px) {
+      .sidebar {
+        left: -300px;
+      }
+    }
+    
+    
+    @media (min-width: 1200px) {
+    
+      #main,
+      #footer {
+        margin-left: 300px;
+      }
+    }
+    
+    @media (max-width: 1199px) {
+      .toggle-sidebar .sidebar {
+        left: 0;
+      }
+    }
+    
+    @media (min-width: 1200px) {
+    
+      .toggle-sidebar #main,
+      .toggle-sidebar #footer {
+        margin-left: 0;
+      }
+    
+      .toggle-sidebar .sidebar {
+        left: -300px;
+      }
+    }
+    
+
+
+
+    /* esstilos no pertenecientes de panel */
+
+    /* Botones */
+    .sign-in_btn {
+      min-width: 300px; /* Tamaño mínimo del botón */
+      max-width: fit-content; /* Se adapta al contenido */
+      height: 40px; /* Mantiene la altura definida */
+      padding: 0 20px; /* Ajusta el relleno sin agrandar el botón */
+      border: none;
+      background: #572772;
+      border-radius: 7px;
+      color: #ffffff;
+      cursor: pointer;
+    }
+    
+
+.sign-in_ggl,
+.sign-in_apl {
+  width: 100%;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border-radius: 7px;
+  border: 1px solid #e5e5e5;
+  cursor: pointer;
+}
+
+.sign-in_ggl {
+  background: #ffffff;
+  color: #242424;
+}
+
+.sign-in_apl {
+  background: #212121;
+  color: #ffffff;
+}
+
+.rounded-container {
+  border-radius: 15px; /* Ajusta el valor para más o menos redondeo */
+  padding: 20px; /* Espaciado interno opcional */
+  background-color: #ffffff; /* Fondo opcional */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
