@@ -188,12 +188,17 @@ autoTable(pdf, {
     pdf.setFont('Helvetica', 'normal');
     pdf.text('C..C.P. ARCHIVO DE LA COSSIES', 20, yPos + 80);
 
-    // Guardar el PDF con el nombre específico
-    pdf.save('Carta_Presentacion_Aceptacion_Servicio_Social.pdf');
+    // Generar nombre del archivo
+    const nombreArchivo = `Carta_Presentacion_Aceptacion_${this.nombreAlumno.replace(/\s+/g, '_')}.pdf`;
+    // Descargar el PDF con nombre específico
+    pdf.save(nombreArchivo);
+
   }
 
   // Método que se ejecuta al enviar el formulario
   onSubmit(): void {
     this.generatePDF();
   }
+
+
 }

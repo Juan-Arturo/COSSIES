@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
 import { jsPDF } from "jspdf";
 
-
 @Component({
   selector: 'app-release-letter',
   imports: [],
   templateUrl: './release-letter.component.html',
   styleUrl: './release-letter.component.css'
 })
+
 export class ReleaseLetterComponent {
 
   // Variables para datos del alumno
@@ -23,9 +23,6 @@ export class ReleaseLetterComponent {
   fechaLiberacion: string = new Date().toISOString().split('T')[0];
   
 
- 
-
-  
   constructor() { }
 
    //PDF
@@ -100,9 +97,15 @@ export class ReleaseLetterComponent {
     doc.setFontSize(8);
     doc.text('C.C.P. ARCHIVO DE LA COSSIES', marginLeft, 240);
 
+    // Generar nombre del archivo
+    const nombreArchivo = `Carta_Liberacion_${this.nombreAlumno.replace(/\s+/g, '_')}.pdf`;
+      
+    // Descargar el PDF con nombre específico
+    doc.save(nombreArchivo);
+
     // Abrir el PDF en una nueva pestaña
-    const pdfOutput = doc.output('bloburl');
-    window.open(pdfOutput, '_blank');
+    //const pdfOutput = doc.output('bloburl');
+    //window.open(pdfOutput, '_blank');
   }
   
   

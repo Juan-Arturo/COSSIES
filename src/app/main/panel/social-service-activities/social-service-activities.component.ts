@@ -22,9 +22,6 @@ export class SocialServiceActivitiesComponent {
   fechaLiberacion: string = new Date().toISOString().split('T')[0];
   
 
- 
-
-  
   constructor() { }
 
    //PDF
@@ -48,62 +45,58 @@ export class SocialServiceActivitiesComponent {
     doc.addImage(fondoImagen, 'PNG', 0, 0, pageWidth, pageHeight);
 
     // Asunto
-    doc.setFontSize(13);
-    const asuntoText = 'ASUNTO: CARTA DE LIBERACIÓN';
+       doc.setFontSize(10);
+       doc.setFont('helvetica', 'bold');
+       doc.text('REPORTE DE ACTIVIDADES DESARROLLADAS EN SERVICIO SOCIAL', pageWidth/2, 40, {align: 'center'});
+   
+    doc.setFontSize(10);
+    const asuntoText = 'NO. INFORME:_______';
+    const asuntoText1 = 'PERIODO:_______a________';
     const asuntoWidth = doc.getTextWidth(asuntoText);
+    const asuntoWidth1 = doc.getTextWidth(asuntoText1);
     doc.text(asuntoText, pageWidth - asuntoWidth - marginRight, 50);
+    doc.text(asuntoText1, pageWidth - asuntoWidth1 - marginRight, 55);
 
     // Encabezado
+    doc.setFontSize(12);
     doc.setFont('helvetica', 'bold');
-    doc.text('MTRO. VICTOR MANUEL BAEZ ALVARADO', marginLeft, 70);
-    doc.text('COORDINADOR DEL SERVICIO SOCIAL', marginLeft, 75);
-    doc.text('DE INSTITUCIONES DE EDUCACIÓN SUPERIOR', marginLeft, 80);
-    doc.text('Y MEDIA SUPERIOR', marginLeft, 85);
-    doc.text('P R E S E N T E', marginLeft, 95);
+    const textoPrestador = 'DATOS DEL PRESTADOR';
+    const anchoPrestador = doc.getTextWidth(textoPrestador);
+    doc.text(textoPrestador, marginLeft, 70);
+    // Dibujar línea de subrayado
+    doc.line(marginLeft, 71, marginLeft + anchoPrestador, 71);
 
     // Cuerpo del texto
-    doc.setFont('helvetica', 'normal');
-    doc.setFontSize(12);
-    const texto1 = `      Por medio del presente reciba un cordial y afectuoso saludo, al mismo tiempo, me permito informar que el/la alumn() ${this.nombreAlumno} del ${this.semestre} del ${this.institucion}, ha CONCLUIDO satisfactoriamente su SERVICIO SOCIAL, cubriendo un total de ${this.horasServicio} HORAS en el área ${this.areaAdscripcion} de la modalidad de ${this.nombrePrograma} dentro de esta dependencia ${this.nombreDependencia}, iniciando el día ${this.fechaInicio} y concluyendo el día ${this.fechaFin}. `;
+   
 
-    doc.setFont('helvetica', 'normal');
-    doc.text(texto1, marginLeft, 110, {
-      align: 'justify',
-      maxWidth: availableWidth
-    });
 
-    const texto2 = `    Por lo tanto, no tengo inconveniente en extender la presente CARTA DE LIBERACIÓN, a los ${new Date(this.fechaLiberacion).toLocaleString('es-ES', {day: 'numeric'})} días del mes de ${new Date(this.fechaLiberacion).toLocaleString('es-ES', {month: 'long'})} del ${new Date(this.fechaLiberacion).getFullYear()}.`;
-    doc.text(texto2, marginLeft, 145, {
-      align: 'justify',
-      maxWidth: availableWidth
-    });
 
-      
-    const texto3 = `Sin otro particular, quedo de usted.`;
-    doc.text(texto3, marginLeft, 165, {
-      align: 'justify',
-      maxWidth: availableWidth
-    });
+
+
+    
 
     // Pie de documento
     doc.setFont('helvetica', 'bold');
-    doc.text('ATENTAMENTE', pageWidth/2, 190, {align: 'center'});
-    doc.text('A LA FECHA DE SU PRESENTACION', pageWidth/2, 195, {align: 'center'});
+   
+    // Espacio para firma 1 (izquierda)
+    doc.line(pageWidth/4 - 30, 220, pageWidth/4 + 30, 220);
+    doc.text('NOMBRE Y FIRMA DEL ALUMNO', pageWidth/4, 225, {align: 'center'});
 
-    // Espacio para firma
-    doc.line(pageWidth/2 - 30, 220, pageWidth/2 + 30, 220);
-    doc.text('FIRMA DEL TITULAR O JEFE INMEDIATO', pageWidth/2, 225, {align: 'center'});
+    // Espacio para firma 2 (derecha)
+    doc.line((pageWidth * 3/4) - 30, 220, (pageWidth * 3/4) + 30, 220);
+    doc.text('NOMBRE Y FIRMA DE JEFE INMEDIATO', (pageWidth * 3/4), 225, {align: 'center'});
 
     // Texto pequeño
-    doc.setFont('helvetica', 'normal');
-    doc.setFontSize(8);
-    doc.text('C.C.P. ARCHIVO DE LA COSSIES', marginLeft, 240);
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(10);
+    doc.text('Poner logo de la dependencia donde realiza servicio', marginLeft, 240);
 
-    // Abrir el PDF en una nueva pestaña
-    const pdfOutput = doc.output('bloburl');
-    window.open(pdfOutput, '_blank');
+    // Generar nombre del archivo
+    const nombreArchivo = `Actividades_Servicio_Social_${this.nombreAlumno.replace(/\s+/g, '_')}.pdf`;
+      
+    // Descargar el PDF con nombre específico
+    doc.save(nombreArchivo);
   }
-  
   
 
 }
