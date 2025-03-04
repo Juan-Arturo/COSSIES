@@ -30,6 +30,7 @@ export const routes: Routes = [
       { path: "evaluation", component: SocialServiceEvaluationComponent },
       { path: "proyect", component: SocialServiceProjectComponent },
       { path: "cancellation", component: SuspensionCancellationComponent  },
+
       { path: "**", redirectTo: "home" }, 
     ],
 

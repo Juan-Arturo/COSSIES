@@ -3,89 +3,99 @@
         <div class="container mt-5">
             <h3 class="text-center text-uppercase fw-bold">FORMULARIO DE SERVICIO SOCIAL</h3>
             <hr class="mb-5">
-            <form class="row g-3 needs-validation" novalidate>
-                <div class="col-md-6">
-                    <label for="name" class="form-label">NOMBRE DEL ALUMNO</label>
-                    <input type="text" class="form-control" id="name" value="" required>
+            <form (ngSubmit)="onSubmit()" novalidate>
+            <div class="row">
+                <div class="col-md-6">                  
+                    <label>NOMBRE COMPLETO DEL ALUMNO</label>
+                    <input type="text" class="form-control" [(ngModel)]="nombreAlumno" name="nombreAlumno" required>
                 </div>
     
                 <div class="col-md-6">
-                    <label for="grado" class="form-label">GRADO O CURSO</label>
-                    <input type="text" class="form-control" id="grado" value="" required>
+                    <label>GRADO / CURSO / SEMESTRE</label>
+                    <input type="text" class="form-control" [(ngModel)]="grado" name="grado" required>
                 </div>
     
                 <div class="col-md-6">
-                    <label for="escuela" class="form-label">NOMBRE DE LA ESCUELA</label>
-                    <input type="text" class="form-control" id="escuela" value="" required>
+                    <label>NOMBRE DE LA ESCUELA</label>
+                    <input type="text" class="form-control" [(ngModel)]="escuela" name="escuela" required>
                 </div>
     
                 <div class="col-md-6">
-                    <label for="direccion" class="form-label">DIRECCION DE LA ESCUELA</label>
-                    <input type="text" class="form-control" id="direccion" value="" required>
+                    <label>DIRECCION DE LA ESCUELA</label>
+                    <input type="text" class="form-control" [(ngModel)]="direccionEscuela" name="direccionEscuela" required>
                 </div>
+  
+                <div class="col-md-5 "></div>
+  
+                <div class="col-md-2 ">
+                  <label>TELEFONO DEL ALUMNO</label>
+                  <input type="text" class="form-control" [(ngModel)]="telefonoAlumno" name="telefono" required>
+  
+              </div>
+  
+              <div class="col-md-4 "></div>
+            </div>
             </form>
         </div>
     
         <div class="p-4">
             <h3 class="text-center text-uppercase fw-bold mt-5">DATOS DE LA DEPENDENCIA</h3>
             <hr class="mb-5">
-            <form class="row g-3 needs-validation" novalidate>
+            <form (ngSubmit)="onSubmit()" novalidate>
+              <div class="row">
                 <div class="col-md-6">
-                    <label for="nombreDependencia" class="form-label">DEPENDENCIA</label>
-                    <input type="text" class="form-control" id="nombreDependencia" value="" required>
+                    <label>NOMBRE DE LA DEPENDENCIA</label>
+                    <input type="text" class="form-control" [(ngModel)]="nombreDependencia" name="nombreDependencia" required>
                 </div>
                 <div class="col-md-6">
-                    <label for="validationCustom02" class="form-label">AREA ESPECIFICA</label>
-                    <input type="text" class="form-control" id="validationCustom02" value="" required>
+                    <label>AREA ESPECIFICA</label>
+                    <input type="text" class="form-control" [(ngModel)]="areaEspecifica" name="areaEspecifica" required>
                 </div>
                 <div class="col-md-6">
-                    <label for="validationCustom02" class="form-label">DIRECCION DE LA DEPENDENCIA</label>
-                    <input type="text" class="form-control" id="validationCustom03" value="" required>
+                    <label>DIRECCION DE LA DEPENDENCIA</label>
+                    <input type="text" class="form-control" [(ngModel)]="direccionDependencia" name="direccionDependencia" required>
                 </div>
                 <div class="col-md-6">
-                    <label for="validationCustom02" class="form-label">TELEFONO</label>
-                    <input type="text" class="form-control" id="validationCustom04" value="" required>
+                    <label>TELEFONO DE LA DEPENDENCIA</label>
+                    <input type="text" class="form-control" [(ngModel)]=" telefonoDependencia" name=" telefonoDependencia" required>
                 </div>
                 <div class="col-md-6">
-                    <label for="validationCustom02" class="form-label">JEFE INMEDIATO</label>
-                    <input type="text" class="form-control" id="validationCustom05" value="" required>
+                    <label>JEFE INMEDIATO</label>
+                    <input type="text" class="form-control" [(ngModel)]="jefeInmediato" name="jefeInmediato" required>
                 </div>
                 <div class="col-md-6">
-                    <label for="validationCustom02" class="form-label">CARGO JEFE INMEDIATO</label>
-                    <input type="text" class="form-control" id="validationCustom06" value="" required>
+                    <label>CARGO JEFE INMEDIATO</label>
+                    <input type="text" class="form-control" [(ngModel)]="cargoJefeInmediato" name="cargoJefeInmediato" required>
                 </div>
                 <div class="col-md-6">
                     <label for="validationCustom02" class="form-label">DIAS DE PRESTACION</label>
                     <input type="text" class="form-control" id="validationCustom07" value="LUNES A VIERNES" required>
                 </div>
                 <div class="col-md-6">
-                    <label for="validationCustom02" class="form-label">CORREO ELECTRONICO</label>
-                    <input type="text" class="form-control" id="validationCustom08" value="" required>
+                    <label>CORREO ELECTRONICO</label>
+                    <input type="text" class="form-control" [(ngModel)]="correoDependencia" name="correoDependencia" required>
+  
                 </div>
                 <div class="col-md-5 ">
-                    <label for="validationCustom02" class="form-label">PROGRAMA</label>
-                    <input type="text" class="form-control" id="validationCustom009" value="" required>
+                    <label>PROGRAMA</label>
+                    <input type="text" class="form-control" [(ngModel)]="programa" name="programa" required>
                 </div>
                 <div class="col-md-3 ">
-                    <label for="validationCustom02" class="form-label">FECHA DE INICIO</label>
-                    <input type="text" class="form-control" id="validationCustom10" value="" required>
+                    <label>FECHA DE INICIO</label>
+                    <input type="date" class="form-control" [(ngModel)]="fechaInicio" name="fechaInicio" required>
                 </div>
                 <div class="col-md-4 ">
-                    <label for="validationCustom02" class="form-label">FECHA DE CONCLUSION</label>
-                    <input type="text" class="form-control" id="validationCustom011" value="" required>
+                    <label>FECHA DE CONCLUSION</label>
+                    <input type="date" class="form-control" [(ngModel)]="fechaConclusion" name="fechaConclusion" required>
                 </div>
-    
-    
+                
                 <div class="col-12 text-center mt-5">
                     <button class="sign-in_btn" type="submit" style="width: 200px;">GUARDAR INFORMACION</button>
                 </div>
-                
-    
+              </div>        
             </form>
         </div>
     </div>
-</main>
-
-
+  </main>
 
 
