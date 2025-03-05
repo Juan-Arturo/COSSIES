@@ -13,5 +13,4 @@ import { PanelSidebarComponent } from '../../shared/panel-sidebar/panel-sidebar.
   styleUrl: './panel.component.css'
 })
 export class PanelComponent {
-
 }

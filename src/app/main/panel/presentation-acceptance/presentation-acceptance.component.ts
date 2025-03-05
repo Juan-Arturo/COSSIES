@@ -191,7 +191,7 @@ autoTable(pdf, {
     // Generar nombre del archivo
     const nombreArchivo = `Carta_Presentacion_Aceptacion_${this.nombreAlumno.replace(/\s+/g, '_')}.pdf`;
     // Descargar el PDF con nombre específico
-    pdf.save(nombreArchivo);
+    pdf.output('dataurlnewwindow', {filename: nombreArchivo});
 
   }
 
@@ -201,4 +201,5 @@ autoTable(pdf, {
   }
 
 
+  //pdf.save(nombreArchivo);
 }
