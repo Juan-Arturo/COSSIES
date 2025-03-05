@@ -13,23 +13,23 @@ import autoTable from 'jspdf-autotable';
 })
 export class PresentationAcceptanceComponent {
   // Variables del formulario
-  nombreAlumno = '';
-  grado = '';
-  escuela = '';
-  direccionEscuela = '';
-  telefonoAlumno = '';
-  horasEnTotal = '';
-  nombreDependencia = '';
-  areaEspecifica = '';
-  direccionDependencia = '';
-  telefonoDependencia = '';
-  jefeInmediato = '';
-  cargoJefeInmediato = '';
+  nombreAlumno = 'Juan Arturo Galindo Perez';
+  grado = '10';
+  escuela = 'COLEGIO DE BACHILLERES PLATÓN SÁNCHEZ';
+  direccionEscuela = 'Av. Revolución 123, Colonia Centro, Ciudad de México, México';
+  telefonoAlumno = '55 5555 5555';
+  horasEnTotal = '489';
+  nombreDependencia = 'COSSIES';
+  areaEspecifica = 'Tec';
+  direccionDependencia = 'Av. Revolución 123, Colonia Centro, Ciudad de México, México';
+  telefonoDependencia = '55 5555 5555';
+  jefeInmediato = 'Juan Arturo Galindo Perez';
+  cargoJefeInmediato = 'JEFE INMEDIATO';
   diasPrestacion = 'Lunes a Viernes';
-  correoDependencia = '';
-  programa = '';
-  fechaInicio = '';
-  fechaConclusion = '';
+  correoDependencia = 'juan.galindo@cossies.com';
+  programa = 'SERVICIO SOCIAL';
+  fechaInicio = '01/01/2025';
+  fechaConclusion = '31/01/2025';
 
   // Generar el PDF con el formato requerido
   generatePDF(): void {
