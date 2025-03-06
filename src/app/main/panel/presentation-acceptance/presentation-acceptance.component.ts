@@ -12,6 +12,11 @@ import autoTable from 'jspdf-autotable';
   styleUrl: './presentation-acceptance.component.css'
 })
 export class PresentationAcceptanceComponent {
+
+//datos de la dependencia
+titularEentidadReceptora = 'MTRO. VICTOR MANUEL BAEZ ALVARADO';
+cargo = 'COORDINADOR DEL SERVICIO SOCIAL';
+
   // Variables del formulario
   nombreAlumno = 'Juan Arturo Galindo Perez';
   grado = '10';
@@ -33,128 +38,105 @@ export class PresentationAcceptanceComponent {
 
   // Generar el PDF con el formato requerido
   generatePDF(): void {
-    const pdf = new jsPDF('p', 'mm', 'letter');
+    const pdf = new jsPDF({unit: 'mm',format: 'letter',orientation: 'portrait'});
+
+
+
+
+    // Márgenes y dimensiones
+    const marginLeft = 20;
+    const marginRight = 20;
     const pageWidth = pdf.internal.pageSize.getWidth();
     const pageHeight = pdf.internal.pageSize.getHeight();
+    const availableWidth = pageWidth - marginLeft - marginRight;
 
+    
      // Agregar imagen de fondo
      const fondoImagen = '../../assets/img/fondoCOSSIES.jpg';
      pdf.addImage(fondoImagen, 'PNG', 0, 0, pageWidth, pageHeight);
 
+
+
     // Título
     pdf.setFont('Helvetica', 'bold');
     pdf.setFontSize(12);
-    pdf.text('ASUNTO: ', 93, 42);
+    pdf.text('ASUNTO: ', 93, 43);
 
     pdf.setFont('Helvetica', 'normal');
-    pdf.text('CARTA PRESENTACIÓN/ACEPTACIÓN', pdf.getTextWidth('ASUNTO: ') + 93, 42);
+    pdf.text('CARTA PRESENTACIÓN/ACEPTACIÓN', pdf.getTextWidth('ASUNTO: ') + 93, 43);
 
     // Contenido principal
     pdf.setFontSize(12);
     pdf.setFont('Helvetica', 'bold');
-    pdf.text(`MTRO. VICTOR MANUEL BAEZ ALVARADO`, 20, 52);
-    pdf.text(`COORDINADOR DEL SERVICIO SOCIAL`, 20, 56);
-    pdf.text(`DE INSTITUCIONES DE EDUCACION SUPERIOR`, 20, 60);
-    pdf.text(`Y MEDIA SUPERIOR`, 20, 64);
-    pdf.text(`P R E S E N T E`, 20, 68);
+    pdf.text(`${this.titularEentidadReceptora}`, marginLeft,55);
+    pdf.text(`COORDINADOR DEL SERVICIO SOCIAL`, marginLeft, 60);
+    pdf.text(`P R E S E N T E`, marginLeft, 65);
 
-    pdf.setFont('Helvetica', 'normal');
-    pdf.text(`Por medio del presente reciba un cordial y afectuoso saludo, al mismo tiempo, me`, 36, 76);
-    pdf.text(`permito presentar al/la alumn() `, 20, 82);
+   
 
-    // Nombre del Alumno en negritas
-    pdf.setFont('Helvetica', 'bold');
-    pdf.text(`${this.nombreAlumno}`, 79, 82);
-    
-    pdf.setFont('Helvetica', 'normal');
-    pdf.text(` del `, 143, 82);
-    
-    pdf.setFont('Helvetica', 'bold');
-    pdf.text(`${this.grado}`, 152, 82);
-    
-    pdf.setFont('Helvetica', 'normal');
-    pdf.text(` del `, 183, 82);
-
-    pdf.setFont('Helvetica', 'bold');
-    pdf.text(`${this.escuela}`, 20, 88);
-
-    pdf.setFont('Helvetica', 'normal');
-    pdf.text(`, con dirección `, 60, 88);
-    
-    pdf.setFont('Helvetica', 'bold');
-    pdf.text(`${this.direccionEscuela}`, 89, 88);
-
-    pdf.setFont('Helvetica', 'normal');
-    pdf.text(` y teléfono`, 170, 88);
-    
-    pdf.setFont('Helvetica', 'bold');
-    pdf.text(`${this.telefonoAlumno}`, 20, 94);
-
-    pdf.setFont('Helvetica', 'normal');
-    pdf.text(`, quien está en disposición y tiene interés de realizar su servicio social`, 58, 94);
-    pdf.text(`cubriendo un total de `, 20, 100);
-
-
-    //horas en tatal en negritas
-    pdf.setFontSize(10);
-    pdf.setFont('Helvetica', 'bold');
-    // pdf.text(489, 61, 100);
-    pdf.text('horas en total', 70, 100);
-
+    pdf.setFont('helvetica', 'normal');
     pdf.setFontSize(12);
-    pdf.setFont('Helvetica', 'normal');
-    pdf.text('en el área y programa que a continuación se detalla:', 94, 100);
+    const texto1 = `      Por medio del presente reciba un cordial y afectuoso saludo, al mismo tiempo, me permito presentar al/la alumn() ${this.nombreAlumno} del ${this.grado} SEMESTRE del ${this.escuela}, con dirección ${this.direccionEscuela} y teléfono ${this.telefonoAlumno}, quien está en disposición y tiene interés de realizar su servicio social cubriendo un total de ${this.horasEnTotal} horas en total en la modalidad que a continuación se detalla: `;
 
-    // 
-    pdf.setFontSize(11);
+    pdf.setFont('helvetica', 'normal'); 
+    pdf.text(texto1, marginLeft, 75, {
+      align: 'justify',
+      maxWidth: availableWidth
+    });
+
+ 
+   
+
+    // Titulo de la tabla
+    pdf.setFontSize(12);
     pdf.setFont('Helvetica', 'bold');
-    pdf.text('DATOS DE LA DEPENDENCIA:', 20, 108);
+    pdf.text('DATOS DE LA DEPENDENCIA: ', marginLeft, 114);
+    
 
 
     // Generar tabla con autoTable
-autoTable(pdf, {
-  startY: 113,
-  margin: { left: 20 }, // Ajusta la posición en X
-  body: [
-    // Primera columna de la tabla
-    [{ content: 'DEPENDENCIA:', styles: { fontStyle: 'bold' } }, { content: 'ÁREA ESPECÍFICA:', styles: { fontStyle: 'bold' } }],
-    [this.nombreDependencia, this.areaEspecifica],
-    [{ content: 'DIRECCIÓN DE LA DEPENDENCIA:', styles: { fontStyle: 'bold' } }, { content: 'TELÉFONO:', styles: { fontStyle: 'bold' } }],
-    [this.direccionDependencia, this.telefonoDependencia],
-    [{ content: 'JEFE INMEDIATO:', styles: { fontStyle: 'bold' } }, { content: 'CARGO DEL JEFE INMEDIATO:', styles: { fontStyle: 'bold' } }],
-    [this.jefeInmediato, this.cargoJefeInmediato],
-    [{ content: 'DÍAS DE PRESTACIÓN:', styles: { fontStyle: 'bold' } }, { content: 'CORREO ELECTRÓNICO:', styles: { fontStyle: 'bold' } }],
-    [this.diasPrestacion, this. correoDependencia],
-    // Aquí agregamos las celdas divididas en 3 columnas
-    [{ content: 'PROGRAMA:', styles: { fontStyle: 'bold' } }, { content: 'FECHA DE INICIO:', styles: { fontStyle: 'bold' } }, { content: 'FECHA DE CONCLUSIÓN', styles: { fontStyle: 'bold' } }],
-    [this.programa, this.fechaInicio, this.fechaConclusion]
-  ],
-  theme: 'grid',
-  styles: {
-    textColor: [0, 0, 0],
-    font: 'Helvetica',
-    fontSize: 6,
-    cellPadding: 1,
-    valign: 'middle',
-    lineWidth: 0.5, // Grosor de las líneas
-    lineColor: [0, 0, 0] // Color negro para las líneas
-  },
-
-  columnStyles: {
-    0: { cellWidth: 85 }, // Primera columna
-    1: { cellWidth: 85 }, // Segunda columna
-    2: { cellWidth: 60 }  // Tercera columna (solo usada en las últimas dos filas)
-  },
-
-  // 🎨 Agregar color a celdas específicas
-  didParseCell: function (data) {
-    // Cambiar color de fondo de las celdas de encabezado
-    if (data.row.index % 2 === 0 && data.row.index <= 8) { // Encabezados de las filas principales
-      data.cell.styles.fillColor = [200, 200, 200]; // Gris claro
-    }
-
-  }
-});
+    autoTable(pdf, {
+      startY: 116,
+      margin: { left: marginLeft }, // Ajusta la posición en X
+      body: [
+        // Primera columna de la tabla
+        [{ content: 'DEPENDENCIA:', styles: { fontStyle: 'bold', halign: 'center' } }, { content: 'ÁREA ESPECÍFICA:', styles: { fontStyle: 'bold', halign: 'center' } }],
+        [{content: this.nombreDependencia, styles: { halign: 'center' } }, {content: this.areaEspecifica, styles: { halign: 'center' }}],
+        [{ content: 'DIRECCIÓN DE LA DEPENDENCIA:', styles: { fontStyle: 'bold', halign: 'center' }}, { content: 'TELÉFONO:', styles: { fontStyle: 'bold', halign: 'center' } }],
+        [{content: this.direccionDependencia, styles: { halign: 'center' } }, {content: this.telefonoDependencia, styles: { halign: 'center' }}],
+        [{ content: 'JEFE INMEDIATO:', styles: { fontStyle: 'bold', halign: 'center' }}, { content: 'CARGO DEL JEFE INMEDIATO:', styles: { fontStyle: 'bold', halign: 'center' }}],
+        [{content: this.jefeInmediato, styles: { halign: 'center' } }, {content: this.cargoJefeInmediato, styles: { halign: 'center' }}],
+        [{ content: 'DÍAS DE PRESTACIÓN:', styles: { fontStyle: 'bold', halign: 'center' } }, { content: 'CORREO ELECTRÓNICO:', styles: { fontStyle: 'bold', halign: 'center' } }],
+        [{content: this.diasPrestacion, styles: { halign: 'center' } }, {content: this.correoDependencia, styles: { halign: 'center' }}],
+        // Aquí agregamos las celdas divididas en 3 columnas
+        [{ content: 'PROGRAMA:', styles: { fontStyle: 'bold', halign: 'center' } }, { content: 'FECHA INICIO - FECHA CONCLUSIÓN', styles:{ fontStyle: 'bold', halign: 'center' } }],
+        [{content: this.programa, styles: { halign: 'center' } }, {content: this.fechaInicio + ' - ' + this.fechaConclusion, styles: { halign: 'center' } }]
+      ],
+      theme: 'grid',
+      styles: {
+        textColor: [0, 0, 0],
+        font: 'Helvetica',
+        fontSize: 6,
+        cellPadding: 1,
+        valign: 'middle',
+        lineWidth: 0.5, // Grosor de las líneas
+        lineColor: [0, 0, 0] // Color negro para las líneas
+      },
+    
+      columnStyles: {
+        0: { cellWidth:  87.9 }, // Primera columna
+        1: { cellWidth: 87.9 }, // Segunda columna
+      },
+    
+      // 🎨 Agregar color a celdas específicas
+      didParseCell: function (data) {
+        // Cambiar color de fondo de las celdas de encabezado
+        if (data.row.index % 2 === 0 && data.row.index <= 8) { // Encabezados de las filas principales
+          data.cell.styles.fillColor = [200, 200, 200]; // Gris claro
+        }
+    
+      }
+    });
 
 
     // Obtener la última posición de la tabla
@@ -165,28 +147,55 @@ autoTable(pdf, {
     let yPos = (pdf as any).lastAutoTable.finalY + 10;
 
 
-    // Pie de página
+    // Texto debajo de la tabla
     pdf.setFontSize(12);
     pdf.setFont('Helvetica', 'normal');
-    pdf.text('Sin otro particular, dando por entendido, que, al firmar el presente, el alumno es aceptado', 20, yPos);
-    pdf.text(`para realizar su servicio social, quedo de Usted.`, 20, yPos + 5);
+    const text2="Sin otro particular, dando por entendido, que, al firmar el presente, los interesados se apegaran a los lineamientos del Servicio Social aplicables para el Estado de Tlaxcala, quedo de Usted."
+  
+    pdf.text(text2, marginLeft, yPos, {
+      align: 'justify',
+      maxWidth: availableWidth
+    });
 
-    pdf.setFontSize(11);
+    // Centramos "ATENTAMENTE"
+    pdf.setFontSize(12);
     pdf.setFont('Helvetica', 'bold');
-    pdf.text('ATENTAMENTE', 90, yPos + 17);
-    pdf.text(`SAN PABLO APETATITLÁN, DE ANTONIO CARVAJAL A__ DE ___ DEL 202_`, 30, yPos + 22);
+    const atencionText = 'ATENTAMENTE';
+    const textWidth = pdf.getTextWidth(atencionText);
+    const centerX = (pageWidth - textWidth) / 2; // Cálculo para centrar el texto
+    pdf.text(atencionText, centerX, yPos + 20);
 
-    // FIRMAS EN NEGRITA
-    pdf.setFontSize(9);
+    // Centramos "TLAXCALA, TLAX., A LA FECHA DE SU PRESENTACIÓN"
+    const fechaText = 'TLAXCALA, TLAX., A LA FECHA DE SU PRESENTACIÓN';
+    const fechaTextWidth = pdf.getTextWidth(fechaText);
+    const centerXFecha = (pageWidth - fechaTextWidth) / 2; // Cálculo para centrar el texto
+    pdf.text(fechaText, centerXFecha, yPos + 25);
+
+
+    // FIRMAS EN NEGRITA PRIMERA SECCION
+    pdf.setFontSize(12);
     pdf.setFont('Helvetica', 'bold');
-    pdf.text('JEFE INMEDIATO', 39, yPos + 45);
-    pdf.text(`FIRMA DEL RESPONSABLE DE SERVICIO SOCIAL DE LA`, 110, yPos + 45);
-    pdf.text(`INSTITUCIÓN EDUCATIVA`, 135, yPos + 49);
+    pdf.text('Enlace de Servicio Social', 37, yPos + 35);
+    pdf.text(`Nombre del Jefe Inmediato`, 130, yPos + 35);
+    pdf.text(`de la Institución Educativa`, 37, yPos + 40);
+
+    // FIRMAS EN NEGRITA SEGUNDA SECCION
+    pdf.setFontSize(12);
+    pdf.setFont('Helvetica', 'bold');
+    pdf.text('Lic. Víctor Manuel Báez Alvarado', 30, yPos + 65);
+    pdf.text('Coordinador del Servicio Social de',28, yPos + 70);
+    pdf.text('Instituciones de Educación Superior ',26, yPos + 75);
+    pdf.text('VO. BO', 55, yPos + 80);
+    pdf.text('Alumno',150, yPos + 80);
+    
+   
 
     // FIRMAS EN NEGRITA
     pdf.setFontSize(5);
     pdf.setFont('Helvetica', 'normal');
-    pdf.text('C..C.P. ARCHIVO DE LA COSSIES', 20, yPos + 80);
+    pdf.text('C.C.P. ALUMNO', 20, yPos +90);
+    pdf.text('C.C.P. JEFE INMEDIATO', 20, yPos +93);
+    pdf.text('C..C.P. ARCHIVO DE LA COSSIES ', 20, yPos +96);
 
     // Generar nombre del archivo
     const nombreArchivo = `Carta_Presentacion_Aceptacion_${this.nombreAlumno.replace(/\s+/g, '_')}.pdf`;
@@ -203,3 +212,5 @@ autoTable(pdf, {
 
   //pdf.save(nombreArchivo);
 }
+
+//ancho disponible 175.89999999999998
