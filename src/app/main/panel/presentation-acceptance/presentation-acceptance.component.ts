@@ -40,9 +40,6 @@ cargo = 'COORDINADOR DEL SERVICIO SOCIAL';
   generatePDF(): void {
     const pdf = new jsPDF({unit: 'mm',format: 'letter',orientation: 'portrait'});
 
-
-
-
     // Márgenes y dimensiones
     const marginLeft = 20;
     const marginRight = 20;
