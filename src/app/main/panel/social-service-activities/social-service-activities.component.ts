@@ -115,15 +115,15 @@ export class SocialServiceActivitiesComponent {
 
 
  
-// Dibujar un rectángulo con bordes negros y fondo transparente
-const rectY = 125; // Posición Y del rectángulo (debajo del texto)
-const rectHeight = 60; // Altura del rectángulo (ajusta según sea necesario)
+    // Dibujar un rectángulo con bordes negros y fondo transparente
+    const rectY = 125; // Posición Y del rectángulo (debajo del texto)
+    const rectHeight = 60; // Altura del rectángulo (ajusta según sea necesario)
 
-// Configurar el color del borde (negro)
-pdf.setDrawColor(0, 0, 0); // Borde negro
+    // Configurar el color del borde (negro)
+    pdf.setDrawColor(0, 0, 0); // Borde negro
 
-// Dibujar el rectángulo solo con borde (fondo transparente)
-pdf.rect(marginLeft, rectY, availableWidth, rectHeight, 'S'); // 'S' para solo borde
+    // Dibujar el rectángulo solo con borde (fondo transparente)
+    pdf.rect(marginLeft, rectY, availableWidth, rectHeight, 'S'); // 'S' para solo borde
 
     //texto de evidencia
     pdf.text('EVIDENCIA:', marginLeft, 190);
