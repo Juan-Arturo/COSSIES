@@ -10,7 +10,7 @@ import autoTable from 'jspdf-autotable';
 })
 export class SocialServiceEvaluationComponent {
 
-  nombreAlumno: string = 'JUAN ARTURO GALINDO PEREZ';
+  nombreAlumno: string = 'ARMANDO MENDOZA GONZÁLEZ';
   programa: string = 'SERVICIO SOCIAL';
   fechaReportada: string = '2025-03-08';
   nivelAcademico: string = 'PRIMER SEMESTRE';

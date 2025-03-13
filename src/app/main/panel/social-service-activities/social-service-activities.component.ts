@@ -10,7 +10,7 @@ import { jsPDF } from "jspdf";
 export class SocialServiceActivitiesComponent {
   
   // Variables para datos del alumno
-  nombreAlumno: string = 'JUAN ARTURO GALINDO PEREZ';
+  nombreAlumno: string = 'ARMANDO MENDOZA GONZÁLEZ';
   especialidadCarrera: string = 'INGENIERIA EN SISTEMAS COMPUTACIONALES';
   semestre: string = 'NOVENO SEMESTRE';
   institucion: string = 'UNIVERSIDAD POLITECNICA DE TLAXCALA';

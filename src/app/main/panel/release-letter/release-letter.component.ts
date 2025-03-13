@@ -11,7 +11,7 @@ import { jsPDF } from "jspdf";
 export class ReleaseLetterComponent {
 
   // Variables para datos del alumno
-  nombreAlumno: string = 'JUAN ARTURO GALINDO PEREZ';
+  nombreAlumno: string = 'ARMANDO MENDOZA GONZÁLEZ';
   semestre: string = 'NOVENO SEMESTRE';
   institucion: string = 'UNIVERSIDAD POLITECNICA DE TLAXCALA';
   horasServicio: number = 160;

@@ -10,10 +10,10 @@ import autoTable from 'jspdf-autotable';
 })
 export class SocialServiceProjectComponent {
 
-  nombreAlumno = 'Juan Arturo Galindo Perez';
+  nombreAlumno = 'ARMANDO MENDOZA GONZÁLEZ';
   nombreDependencia = 'COSSIES';
   telefonoDependencia = '55 5555 5555';
-  jefeInmediato = 'Juan Arturo Galindo Perez';
+  jefeInmediato = 'ARMANDO MENDOZA GONZÁLEZ';
   cargoJefeInmediato = 'JEFE INMEDIATO';
   programa = 'SERVICIO SOCIAL';
   motivoSuspensionCancelacion: string = 'Suspensión por ausencia injustificada';

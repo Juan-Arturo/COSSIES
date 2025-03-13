@@ -18,7 +18,7 @@ titularEentidadReceptora = 'MTRO. VICTOR MANUEL BAEZ ALVARADO';
 cargo = 'COORDINADOR DEL SERVICIO SOCIAL';
 
   // Variables del formulario
-  nombreAlumno = 'Juan Arturo Galindo Perez';
+  nombreAlumno = 'ARMANDO MENDOZA GONZÁLEZ';
   grado = '10';
   escuela = 'COLEGIO DE BACHILLERES PLATÓN SÁNCHEZ';
   direccionEscuela = 'Av. Revolución 123, Colonia Centro, Ciudad de México, México';
@@ -28,10 +28,10 @@ cargo = 'COORDINADOR DEL SERVICIO SOCIAL';
   areaEspecifica = 'Tec';
   direccionDependencia = 'Av. Revolución 123, Colonia Centro, Ciudad de México, México';
   telefonoDependencia = '55 5555 5555';
-  jefeInmediato = 'Juan Arturo Galindo Perez';
+  jefeInmediato = 'ARMANDO MENDOZA GONZÁLEZ';
   cargoJefeInmediato = 'JEFE INMEDIATO';
   diasPrestacion = 'Lunes a Viernes';
-  correoDependencia = 'juan.galindo@cossies.com';
+  correoDependencia = 'Armando.Mendoza@cossies.com';
   programa = 'SERVICIO SOCIAL';
   fechaInicio = '01/01/2025';
   fechaConclusion = '31/01/2025';
